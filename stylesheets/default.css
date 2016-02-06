@@ -12,7 +12,10 @@ body {
     font-family: helvetica;
     background-color: #444444;
 }
- 
+
+
+
+/* HEADER */
 header {
     color: #FFFFFF;
     position: relative;
@@ -54,7 +57,7 @@ header {
   z-index: 3;
 }
 
-main {
+.slideshow {
   background-color: gray;
   width: 75%;
   height: 400px;
@@ -62,13 +65,13 @@ main {
   padding-right: 10%;
 }
 
-.social {
+.social, .social-small {
   position: absolute;
   top: 375px;
   right: 10px;
 }
 
-.social ul {
+.social ul, .social-small ul {
   display: table-row;
   text-align: center;
 

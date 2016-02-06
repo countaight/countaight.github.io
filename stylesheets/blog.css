@@ -1,0 +1,189 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,900);
+
+/* GENERAL */
+
+body {
+    font-family: helvetica;
+    background-color: #444444;
+    margin: 50px;
+}
+
+
+
+/* header */
+header {
+    max-width: 960px;
+    height: 150px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.small-menu {
+    float: left;
+    position: relative;
+    right: -200px;
+    bottom: -50px;
+}
+
+header.blog-index .small-menu {
+    right: -150px;
+}
+
+.small-menu li {
+    display: inline-block;
+}
+
+.small-menu a {
+    font-size: 1.5em;
+    font-family: 'Source Sans Pro', helvetica, sans-serif;
+    font-weight: lighter;
+}
+
+.profile-img {
+    position: static;
+}
+
+
+
+/* MAIN BLOG LISTING */
+
+.container {
+    max-width: 960px;
+    color: white;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.latest-posts {
+    width: 75%;
+    min-height: 400px;
+    background-color: gray;
+    float: left;
+    padding: 1.5%;
+}
+
+
+
+/* SINGLE POST */
+
+.single-blog-post {
+    width: 60%;
+    float: left;
+}
+ 
+h2 {
+    font-size: 4em;
+    font-family: 'Montserrat', helvetica, sans-serif;
+    color: #FFFFFF;
+    width: 100%;
+    margin: 0;
+}
+ 
+article > h3 {
+    font-family: 'Montserrat', helvetica, sans-serif;
+    color: #046380;
+    background-color: #FFF;
+    padding: 10px;
+    z-index: -1;
+    display: inline-block;
+    margin: 0;
+}
+ 
+h4 {
+    color: #FFFFFF;
+    position: relative;
+    top: 19px;
+    font-weight: lighter;
+    font-style: oblique;
+}
+ 
+.blog-body {
+    text-align: justify;
+    font-family: Georgia, serif;
+    width: 100%;
+    background-color: #222222;
+    color: #FFFFFF;
+    padding: 10px;
+}
+ 
+.blog-body p {
+    text-indent: 10px;
+    line-height: 150%;
+}
+
+
+
+/* SIDEBAR */
+
+.social-small {
+    position: static;
+    float: right;
+}
+
+.social-small li {
+  font-size: 1.5em;
+  background-color: #046380;
+  padding: 10px;
+  margin: 5px;
+}
+ 
+@media screen and (max-width: 514px) {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    h2 {
+        margin: auto;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        z-index: 2;
+    }
+ 
+    h3 {
+        position: fixed;
+        top: 60px;
+        left: 0px;
+        width: 100%;
+        font-size: 1em;
+        z-index: 1;
+    }
+ 
+    section {
+        width: 100%;
+    }
+
+    h4 {
+        color: gray;
+        position: fixed;
+        z-index: 2;
+        top: 62px;
+        right: 10px;
+    }
+
+    .container {
+      width: 100%;
+    }
+
+    .social-small {
+        display: table;
+        width: 100%;
+        clear:both;
+    }
+
+    .social-small li {
+        width: 100%;
+    }
+
+    .latest-posts {
+      width: 100%
+    }
+
+    footer {
+      position: static;
+      float: left;
+      clear: both;
+    }
+ 
+ 
+}

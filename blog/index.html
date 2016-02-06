@@ -1,42 +1,46 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Blog</title>
-</head>
-<body>
-	<header>
-		<nav>
-			<ul>
-				<li><a href="../index.html">Home</a></li>
-				<li><a href="#">Projects</a></li>
-				<li><a href="#">About Me</a></li>
-				<li><a href="#">Contact</a></li>
-				<li><a href="#">Resume</a></li>
-			</ul>
-		</nav>
-	</header>
-	<img src="#" alt="Profile Image" />
-	<section>
-		<h1>Latest Posts</h1>
-		<ul>
-			<li><a href="git.html">New Beginnings</a></li>
-		</ul>
-	</section>
-	<aside>
-		<ul>
-			<li><a href="http://facebook.com/canyoucount">Facebook</a></li>
-			<li><a href="http://linkedin.com/in/oscardel">LinkedIn</a></li>
-			<li><a href="http://twitter.com/countaightblah">Twitter</a></li>
-			<li><a href="http://github.com/countaight">GitHub</a></li>
-		</ul>
-		<hr>
-		<div>
-			<a href="#">Search Box</a><br>
-			<a href="#">Post Archive</a>
-			<hr>
-			<a href="#">Blog Tags</a>
-		</div>
-	</aside>
-	<footer>Copyright Stuff</footer>
-</body>
+	<head>
+		<title>Blog</title>
+		<link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+		<link rel="stylesheet" type="text/css" href="../stylesheets/blog.css">
+	</head>
+	<body>
+		<header class="blog-index">
+			<img class="profile-img" src="../imgs/profile-img.jpg" alt="Profile Image" />
+			<nav class="small-menu">
+				<ul class="small-menu">
+					<li><a href="../index.html">Home</a></li>
+					<li><a href="#">Projects</a></li>
+					<li><a href="#">About Me</a></li>
+					<li><a href="#">Contact</a></li>
+					<li><a href="#">Resume</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main class="container">
+			<section class="latest-posts">
+				<h1>Latest Posts</h1>
+				<ul>
+					<li><a href="git.html">New Beginnings</a></li>
+				</ul>
+			</section>
+			<aside class="social-small">
+				<ul>
+					<li><a href="http://facebook.com/canyoucount">Facebook</a></li>
+					<li><a href="http://linkedin.com/in/oscardel">LinkedIn</a></li>
+					<li><a href="http://twitter.com/countaightblah">Twitter</a></li>
+					<li><a href="http://github.com/countaight">GitHub</a></li>
+				</ul>
+				<hr>
+				<div>
+					<a href="#">Search Box</a><br>
+					<a href="#">Post Archive</a>
+					<hr>
+					<a href="#">Blog Tags</a>
+				</div>
+			</aside>
+		</main>
+		<footer>Copyright &copy; 2016 Oscar Delgadillo</footer>
+	</body>
 </html>

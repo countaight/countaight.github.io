@@ -4,6 +4,10 @@ a {
   font-weight: bold;
 }
 
+a:hover {
+  color: lightgray;
+}
+
 li {
   list-style-type: none;
 }

@@ -111,10 +111,24 @@ h4 {
     line-height: 150%;
 }
 
+.body-imgs {
+    width: 100%;
+    height: 100%;
+}
+
+.crop-height {
+    max-height: 320px;
+    overflow: hidden;
+}
+
+.code {
+    background-color: lightgray;
+    color: #999;
+}
+
 
 
 /* SIDEBAR */
-
 .social-small {
     position: static;
     float: right;

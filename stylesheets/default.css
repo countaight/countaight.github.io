@@ -13,8 +13,10 @@ li {
 }
 
 body {
+    width: 90%;
     font-family: helvetica;
     background-color: #444444;
+    margin: 0 auto;
 }
 
 
@@ -50,29 +52,29 @@ header {
 }
 
 .profile-img {
-  position: relative;
-  top: -75px;
-  right:8px;
   width: 150px;
   height: 150px;
   background-color: beige;
   border-radius: 50%;
   float: right;
   z-index: 3;
+  margin: 1%;
 }
 
+/* MAIN AREA */
 .slideshow {
+  float: left;
   background-color: gray;
-  width: 75%;
+  width: 73%;
   height: 400px;
-  margin-top: 100px;
+  margin-top: 5%;
   padding-right: 10%;
 }
 
+/* SIDE BAR */
 .social, .social-small {
-  position: absolute;
-  top: 375px;
-  right: 10px;
+  float: left;
+  margin: 5% 1%;
 }
 
 .social ul, .social-small ul {
@@ -91,9 +93,10 @@ header {
 footer {
   background-color: black;
   color: white;
-  position: absolute;
+  float: right;
+  clear: both;
   width: 100%;
-  bottom: 0px;
+  margin-top: 20%;
 }
 
 @media screen and (max-width: 514px) {

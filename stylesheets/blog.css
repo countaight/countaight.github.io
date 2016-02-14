@@ -3,6 +3,7 @@
 /* GENERAL */
 
 body {
+    width: 90%;
     font-family: helvetica;
     background-color: #444444;
     margin: 50px;
@@ -130,8 +131,7 @@ h4 {
 
 /* SIDEBAR */
 .social-small {
-    position: static;
-    float: right;
+    float: left;
 }
 
 .social-small li {

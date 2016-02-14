@@ -68,8 +68,10 @@ header.blog-index .small-menu {
 /* SINGLE POST */
 
 .single-blog-post {
-    width: 60%;
+    width: 75%;
     float: left;
+    margin: 1%;
+    padding: 1%;
 }
  
 h2 {

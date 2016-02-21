@@ -1,0 +1,42 @@
+body {
+	color: white;
+}
+
+header {
+	height: 100px;
+}
+
+.main-menu {
+	position: static;
+}
+
+.contact-info {
+	background-color: #999999;
+	text-align: center;
+	height: 700px;
+}
+
+.profile-img {
+	float: none;
+}
+
+.social-med {
+	display: inline-block;
+	margin: 0 auto;
+}
+
+.social-icon {
+	width: 60px;
+	height: 60px;
+}
+
+fieldset {
+	border: solid 1px #dcdcdc;
+	width: 50%;
+	margin: 0 auto;
+}
+
+textarea {
+	width: 50%;
+	height: 100px;
+}

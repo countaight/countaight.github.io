@@ -56,7 +56,7 @@
             </pre>
           </blockquote>
           <p>
-            Everything in Ruby is considered an object, and every object in part has a class, but it all ultimitaely ends up being an object. So why have that class-object distinction? Well classes simply help organize the attributes and behaviors of an object so they become predictable. Just like objects in the real world, objects in Ruby can be described by how and what they respond to. For example, had you a shadowy, fuzzy figure in front of you, and you happen to call its bark behavior (or method as it is known in Ruby), and it responds, "woof!", then you know you might be dealing with an object of the Dog class. These methods aren't only useful for determining what you're dealing with, they can also alter, mold, or expand the use of the object.
+            Everything in Ruby is considered an object, and every object in part has a class, but it all ultimately ends up being an object. So why have that class-object distinction? Well classes simply help organize the attributes and behaviors of an object so they become predictable. Just like objects in the real world, objects in Ruby can be described by how and what they respond to. For example, had you a shadowy, fuzzy figure in front of you, and you happen to call its bark behavior (or method as it is known in Ruby), and it responds, "woof!", then you know you might be dealing with an object of the Dog class. These methods aren't only useful for determining what you're dealing with, they can also alter, mold, or expand the use of the object.
           </p>
           <p>
             Following this train of thought, then, we can start doing more with arrays and hashes, container objects, that are part of the Enumerable class. What this means is that, arrays and hashes contain elements that can be enumerated, or counted on one by one. It's by this enumerable trait, that most methods related to arrays and hashes allow you to read (<code>array.first</code> for example, diplays the first element) or control the contents, or elements, inside them. And there a number of them, but the one that I will focus on, is the inject method.
@@ -93,7 +93,7 @@
               </pre>
           </blockquote>
           <p>
-            The code above creates a math array with the number one through five, and using the inject method with the multiply symbol, reduces the numbers to a single number--the result of multiplying all those numbers together. But using the method this way makes the inject method appear to be a misnomer, why is it called inject? Ah, therein lies our clown car example...
+            The code above creates a math array with the number one through five, and using the inject method with the multiplication symbol, reduces the numbers to a single number--the result of multiplying all those numbers together. But using the method this way makes the inject method appear to be a misnomer, why is it called inject? Ah, therein lies our clown car example...
           </p>
           <h3>
             The Anatomy of Enumerable#inject
@@ -103,11 +103,11 @@
             Taking the method and expanding it to its most complicated use case, we can see that the method is called on an array, it takes an argument in parenthesis, which sets the initial value (anything from a number to another new array, or new hash--coincidentally this is the type of object that will be returned if no other is specified), finally a block is passed with further instructions. Some notable things about the block: the initial value is set as one of the variables (in our case the car), and the iteration of each element is set to the second variable (clown), this means that the code will execute every time using each clown once. This code indicates that the clown should be <em>injected</em> into the clown car by making the clown index in the array (one is added because array indices start with 0) the hash key, and the clown name becomes the value (again review the previous post to understand this). Finally, the car is returned to become the car variable again, and the next clown is <em>injected</em>, if the last line is omitted, then the last clown used becomes the new car variable and the next clown is then attempted to be <em>injected</em>. As you can see, that doesn't make sense in this context, a clown being injected into another clown--hilarious as that actually sounds, but it is the reason why using <em>inject</em> mathematically, works. Essentially, you're injecting each value back on the result of the operations performed on the previous values.
           </p>
           <p>
-            But now back to our clown car example, a pictorial diagram might help visualize what is going on. If the initial value, the clown car, is the hash (the two curly braces), and the clowns available is the array, then the code process looks like this:
+            But now back to our clown car example, a diagram might help visualize what is going on. If the initial value, the clown car, is the hash (the two curly braces), and the clowns available is the array, then the code process looks like this:
           </p>
           <img src="../imgs/enumerable/Inject_diagram.jpg" class="body-imgs">
           <p>
-            And with that, I urge you to imagine these clowns hilariously jumping into a small car with seemingly limited space. If you would like to learn more about Ruby Enumerable methods you can also check out the Ruby Docs <a href="http://ruby-doc.org/core-2.2.0/Enumerable.html">here</a>.
+            And with that, I urge you to imagine these clowns hilariously jumping into a small car with seemingly limited space. If you would like to learn more about Ruby Enumerable methods you can also check out the Ruby Docs <a href="http://ruby-doc.org/core-2.2.0/Enumerable.html">here</a>. Also feel free to reach out by using my newly created contact page <a href="../contact.html">here</a>.
           </p>
         </section>
       </article>

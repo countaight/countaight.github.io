@@ -11,7 +11,7 @@ body {
 
 
 
-/* header */
+/* HEADER */
 header {
     max-width: 960px;
     height: 150px;
@@ -134,7 +134,7 @@ pre {
 
 .code {
     background-color: lightgray;
-    color: #999;
+    color: #222222;
 }
 
 

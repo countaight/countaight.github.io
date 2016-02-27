@@ -7,6 +7,7 @@ body {
     font-family: helvetica;
     background-color: #444444;
     margin: 50px;
+    overflow-x: hidden;
 }
 
 
@@ -151,38 +152,69 @@ pre {
   margin: 5px;
 }
  
-@media screen and (max-width: 514px) {
+@media only screen and (max-width: 767px) {
+
     body {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    header {
+        width: 100%;
+        left: 0;
+        right: 0;
+        margin: 0;
+    }
+
+    .small-menu li {
+        display: block;
+    }
+
+    .small-menu {
+        position: static;
+        left: 0;
+        float: left;
+    }
+
+    .small-menu ul {
         margin: 0;
         padding: 0;
     }
+
+    .profile-img {
+        float: left;
+        margin-left: 50%;
+    }
+
+    .container {
+        margin: 0;
+        padding: 0;
+    }
+
+    .latest-posts {
+        text-align: center;
+    }
+    
+    .latest-posts h1 {
+        font-size: 2.5em; 
+    }
+
+    .latest-posts ul {
+        padding: 0;
+    }
     h2 {
-        margin: auto;
-        position: fixed;
-        top: 0px;
-        left: 0px;
-        z-index: 2;
     }
  
     h3 {
-        position: fixed;
-        top: 60px;
-        left: 0px;
-        width: 100%;
-        font-size: 1em;
-        z-index: 1;
     }
  
     section {
         width: 100%;
+        margin: 0 auto;
     }
 
     h4 {
-        color: gray;
-        position: fixed;
-        z-index: 2;
-        top: 62px;
-        right: 10px;
     }
 
     .container {
@@ -190,13 +222,19 @@ pre {
     }
 
     .social-small {
+        margin:1% 0;
         display: table;
         width: 100%;
         clear:both;
     }
 
     .social-small li {
-        width: 100%;
+        width: 90%;
+        margin: 1% auto;
+    }
+
+    div {
+        padding: 1%;
     }
 
     .latest-posts {
@@ -208,6 +246,13 @@ pre {
       float: left;
       clear: both;
     }
- 
+
+    /* SINGLE BLOG */
+
+    .single-blog-post {
+        width: 100%;
+        margin: 0 auto;
+    }
+
  
 }

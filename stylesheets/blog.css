@@ -7,7 +7,6 @@ body {
     font-family: helvetica;
     background-color: #444444;
     margin: 50px;
-    overflow-x: hidden;
 }
 
 
@@ -15,9 +14,9 @@ body {
 /* HEADER */
 header {
     max-width: 960px;
-    height: 150px;
+    height: 160px;
     margin: 0 auto;
-    padding: 10px;
+    /* padding: 10px; */
 }
 
 .small-menu {
@@ -61,7 +60,7 @@ header.blog-index .small-menu {
     min-height: 400px;
     background-color: gray;
     float: left;
-    padding: 1.5%;
+    /* padding: 1.5%; */
 }
 
 
@@ -175,6 +174,7 @@ pre {
         position: static;
         left: 0;
         float: left;
+        margin: 1%;
     }
 
     .small-menu ul {
@@ -183,8 +183,8 @@ pre {
     }
 
     .profile-img {
-        float: left;
-        margin-left: 50%;
+        float: right;
+        margin: 1%;
     }
 
     .container {

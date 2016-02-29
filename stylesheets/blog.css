@@ -154,7 +154,6 @@ pre {
 @media only screen and (max-width: 767px) {
 
     body {
-        width: 100%;
         margin: 0 auto;
         padding: 0;
     }
@@ -249,9 +248,17 @@ pre {
 
     /* SINGLE BLOG */
 
+    .blog-body {
+        padding: 1%;
+    }
+
     .single-blog-post {
         width: 100%;
         margin: 0 auto;
+    }
+
+    .single-blog-post h2 {
+        font-size: 1.5em;
     }
 
  

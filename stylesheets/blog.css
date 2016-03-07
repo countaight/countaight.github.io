@@ -41,8 +41,10 @@ header.blog-index .small-menu {
     font-weight: lighter;
 }
 
-.profile-img {
-    position: static;
+.img-blog-position {
+    position: absolute;
+    top: 5px;
+    right: 5px;
 }
 
 
@@ -152,7 +154,7 @@ pre {
 
 /* SIDEBAR */
 .social-small {
-    float: left;
+    margin-left: 1em;
 }
 
 .social-small li {
@@ -167,6 +169,7 @@ pre {
     body {
         margin: 0 auto;
         padding: 0;
+        width: 100%;
     }
 
     header {
@@ -176,15 +179,15 @@ pre {
         margin: 0;
     }
 
-    .small-menu li {
-        display: block;
-    }
-
     .small-menu {
         position: static;
         left: 0;
         float: left;
-        margin: 1%;
+    }
+
+    .small-menu li {
+        display: block;
+        margin-top: 5px;
     }
 
     .small-menu ul {
@@ -192,18 +195,26 @@ pre {
         padding: 0;
     }
 
-    .profile-img {
-        float: right;
-        margin: 1%;
+    .social-small {
+        display: table;
+        width: 100%;
+        clear:both;
+        margin: 1em 0 0 0;
+    }
+
+    .social-small ul {
+        width: 100%;
     }
 
     .container {
+        width: 100%;
         margin: 0;
         padding: 0;
     }
 
     .latest-posts {
         text-align: center;
+        width: 100%;
     }
     
     .latest-posts h1 {
@@ -213,42 +224,9 @@ pre {
     .latest-posts ul {
         padding: 0;
     }
-    h2 {
-    }
- 
-    h3 {
-    }
- 
-    section {
-        width: 100%;
-        margin: 0 auto;
-    }
-
-    h4 {
-    }
-
-    .container {
-      width: 100%;
-    }
-
-    .social-small {
-        margin:1% 0;
-        display: table;
-        width: 100%;
-        clear:both;
-    }
-
-    .social-small li {
-        width: 90%;
-        margin: 1% auto;
-    }
 
     div {
         padding: 1%;
-    }
-
-    .latest-posts {
-      width: 100%
     }
 
     footer {
@@ -259,18 +237,22 @@ pre {
 
     /* SINGLE BLOG */
 
-    .blog-body {
-        padding: 1%;
-    }
-
     .single-blog-post {
         width: 100%;
-        margin: 0 auto;
+        margin: 0;
+        padding: 0;
     }
 
     .single-blog-post h2 {
         font-size: 1.5em;
     }
 
- 
+    .blog-body {
+        padding: 0;
+    }
+
+    .code {
+        width: 100%;
+        margin: 0;
+    }
 }

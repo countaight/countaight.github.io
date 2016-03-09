@@ -1,0 +1,22 @@
+@import url(https://fonts.googleapis.com/css?family=Merriweather+Sans:400,800);
+
+body {
+	background-color: #eee;
+	width: 960px;
+	margin: 0 auto;
+}
+
+header {
+	background-color: #046380;
+	position: relative;
+	color: white;
+	height: 200px;
+	font-family: "Merriweather Sans", sans-serif;
+	text-align: center;
+}
+
+h1 {
+	position: absolute;
+	bottom: 10px;
+	margin-left: 10px;
+}

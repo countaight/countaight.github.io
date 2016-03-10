@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ruby vs. JavaScript Looping</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="../stylesheets/reset.css">
+	<link rel="stylesheet" type="text/css" href="../stylesheets/cheat-sheet.css">
+</head>
+<body>
+	<header>
+		<img src="../imgs/cheatsheet/RubyJSLooping.png">
+	</header>
+	<main>
+		<article class="leftcol">
+			<section class="examples">
+				<h2>for...in loop</h2>
+				<p>
+					For loops allow you to execute code an amount of times determined by a variable designated for every element in an enumerable.
+				</p>
+				<div class="example-body">
+				<pre>
+for num in 0..5 do
+  puts "Value of num is now #{num}."
+end
+				</pre>
+				</div>
+			</section>
+			<section class="examples" id="whileUntil">
+				<h2>while/until loop</h2>
+				<p>
+					While loops allow code to execute while a condition is true. Until loops allow code to execute while a condition is false.
+				</p>
+				<div class="while example-body active">
+					<pre>
+i = 0
+while i <= 5 do
+  puts "Variable i value is #{i}"
+  i += 1
+end
+					</pre>
+				</div>
+				<div class="until example-body hidden">
+					<pre>
+i = 5
+until i > 5 do
+  puts "Variable i value is #{i}"
+  i += 1
+end
+					</pre>
+				</div>
+				<span class="while example-button active">while</span><span class="until example-button hidden">until</span>
+			</section>
+			<section id="loopMethods" class="examples">
+				<h2>loop methods</h2>
+				<p>
+					Ruby also offers methods, also call enumerable methods, that allow code to execute an amount of times or based on the amount of elements in an enumerable, such as an array or hash.
+				</p>
+				<div class="times example-body active">
+				<pre>
+5.times do
+  puts "Running this many times."
+end
+				</pre>
+				</div>
+				<div class="each example-body hidden">
+				<pre>
+array = [1, 2, 3]
+array.each do |number|
+  puts "Array has number #{number}."
+end
+				</pre>
+				</div>
+				<span class="times example-button active">times</span><span class="each example-button hidden">each</span>
+			</section>
+		</article>
+		<article class="rightcol">
+			<section class="examples">
+				<h2>for loop</h2>
+				<p>
+					For loops in JavaScript are a bit more involved, but still straight forward. The condition for the loops includes a variable counter assigment, a condition for the variable to assess, and an increment value.
+				</p>
+				<div class="example-body">
+				<pre>
+for (var i = 0; i < 5; i++) {
+  console.log("Variable i is", i);
+}
+				</pre>
+				</div>
+			</section>
+			<section class="examples">
+				<h2>for...in loop</h2>
+				<p>
+					For...in loops are similar to Ruby's; they accept a variable for every element in an expression.
+				</p>
+				<div class="example-body">
+				<pre>
+var array = [1, 2, 3, 4, 5]
+for (var i in array) {
+  console.log("Index", i, "has a value of", array[i]);
+}
+				</pre>
+				</div>
+			</section>
+			<section class="examples">
+				<h2>while loop</h2>
+				<p>
+					While loops in JavaScript execute the code as long as the condition remains true. It's a smart idea to be able to make the condition false, or else you will run into an infinite loop.
+				</p>
+				<div class="example-body">
+				<pre>
+var i = 0
+while (i < 5) {
+  console.log("Value of i is", i);
+  i++;
+}
+				</pre>
+				</div>
+			</section>
+		</article>
+	</main>
+	<footer><p>Copyright &copy; 2016 Oscar Delgadillo</p></footer>
+<script src="../js/myTestScript.js"></script>
+</body>
+</html>
+	

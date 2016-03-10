@@ -7,16 +7,92 @@ body {
 }
 
 header {
-	background-color: #046380;
 	position: relative;
+	height: 216px;
 	color: white;
-	height: 200px;
 	font-family: "Merriweather Sans", sans-serif;
 	text-align: center;
+	box-shadow: 0px 8px 12px 1px rgba(0, 0, 0, 0.15);
 }
 
-h1 {
-	position: absolute;
-	bottom: 10px;
-	margin-left: 10px;
+img {
+	width: 100%;
+}
+
+main {
+	display: inline-block;
+	border: solid;
+	border-color: #999;
+}
+
+.rightcol, .leftcol {
+	float: left;
+	width: 47.377%;
+	padding: 1%;
+}
+
+.leftcol {
+	border-right: solid;
+	border-color: red;
+}
+
+.rightcol {
+	border-left: solid;
+	border-color: blue;
+}
+
+section {
+}
+
+h2 {
+	color: white;
+	font-size: 2em;
+	background-color: #9f9f9f;
+	font-family: "Merriweather", sans-serif;
+	padding: 1%;
+	margin-top: 10%;
+}
+
+p {
+	margin-top: 5px;
+	font-family: Arial, sans-serif;
+	font-size: 1.25em;
+	line-height: 1em;
+}
+
+div {
+  border: solid;
+}
+
+pre {
+	font-size: 1.15em;
+	background: #222;
+	color: #ddd;
+	padding: 1%;
+}
+
+.example-button {
+  font-family: Arial, sans-serif;
+  color: white;
+  background: #444;
+  border-radius: 5px;
+  padding: 0 1% 1% 1%;
+}
+
+span.active {
+  background: red;
+}
+
+div.active {
+  border-color: red;
+}
+
+div.hidden {
+	display: none;
+}
+
+footer {
+	background-color: #555;
+	color: white;
+	padding: 1%;
 }

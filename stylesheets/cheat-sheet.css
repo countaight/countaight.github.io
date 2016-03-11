@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Merriweather+Sans:400,800);
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
 
 body {
 	background-color: #eee;
@@ -34,6 +35,7 @@ main {
 .leftcol {
 	border-right: solid;
 	border-color: red;
+	margin-left: .25%;
 }
 
 .rightcol {
@@ -49,6 +51,7 @@ h2 {
 	font-size: 2em;
 	background-color: #9f9f9f;
 	font-family: "Merriweather", sans-serif;
+	font-weight: lighter;
 	padding: 1%;
 	margin-top: 10%;
 }
@@ -58,6 +61,7 @@ p {
 	font-family: Arial, sans-serif;
 	font-size: 1.25em;
 	line-height: 1em;
+	text-align: justify;
 }
 
 div {
@@ -69,6 +73,7 @@ pre {
 	background: #222;
 	color: #ddd;
 	padding: 1%;
+	overflow: auto;
 }
 
 .example-button {
@@ -91,8 +96,14 @@ div.hidden {
 	display: none;
 }
 
+span.word_loop {
+	font-family: "Pacifico", sans-serif;
+	font-weight: lighter;
+}
+
 footer {
 	background-color: #555;
 	color: white;
+	font-size: 12px;
 	padding: 1%;
 }

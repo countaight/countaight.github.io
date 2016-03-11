@@ -15,20 +15,26 @@
 	<main>
 		<article class="leftcol">
 			<section class="examples">
-				<h2>for...in loop</h2>
+				<h2>for...in <span class="word_loop">loop</span></h2>
 				<p>
 					For loops allow you to execute code an amount of times determined by a variable designated for every element in an enumerable.
 				</p>
 				<div class="example-body">
 				<pre>
 for num in 0..5 do
-  puts "Value of num is now #{num}."
+ puts "Value of num is now #{num}."
 end
-				</pre>
+Value of num is now 0.
+Value of num is now 1.
+Value of num is now 2.
+Value of num is now 3.
+Value of num is now 4.
+Value of num is now 5.
+=> 0..5</pre>
 				</div>
 			</section>
 			<section class="examples" id="whileUntil">
-				<h2>while/until loop</h2>
+				<h2>while/until <span class="word_loop">loop</span></h2>
 				<p>
 					While loops allow code to execute while a condition is true. Until loops allow code to execute while a condition is false.
 				</p>
@@ -36,86 +42,125 @@ end
 					<pre>
 i = 0
 while i <= 5 do
-  puts "Variable i value is #{i}"
+  puts "Variable i value is #{i}."
   i += 1
 end
-					</pre>
+Variable i value is 0.
+Variable i value is 1.
+Variable i value is 2.
+Variable i value is 3.
+Variable i value is 4.
+Variable i value is 5.
+=> nil</pre>
 				</div>
 				<div class="until example-body hidden">
 					<pre>
-i = 5
+i = 0
 until i > 5 do
   puts "Variable i value is #{i}"
   i += 1
 end
-					</pre>
+Variable i value is 0.
+Variable i value is 1.
+Variable i value is 2.
+Variable i value is 3.
+Variable i value is 4.
+Variable i value is 5.
+=> nil</pre>
 				</div>
 				<span class="while example-button active">while</span><span class="until example-button hidden">until</span>
 			</section>
 			<section id="loopMethods" class="examples">
-				<h2>loop methods</h2>
+				<h2><span class="word_loop">loop</span> methods</h2>
 				<p>
 					Ruby also offers methods, also call enumerable methods, that allow code to execute an amount of times or based on the amount of elements in an enumerable, such as an array or hash.
 				</p>
 				<div class="times example-body active">
 				<pre>
+i = 1
 5.times do
-  puts "Running this many times."
+  puts "This has run #{i} time(s)."
+  i += 1
 end
-				</pre>
+This has run 1 time(s).
+This has run 2 time(s).
+This has run 3 time(s).
+This has run 4 time(s).
+This has run 5 time(s).
+=> 5</pre>
 				</div>
 				<div class="each example-body hidden">
 				<pre>
-array = [1, 2, 3]
-array.each do |number|
-  puts "Array has number #{number}."
+(1..5).each do |number|
+  puts "This has run #{number} times."
 end
-				</pre>
+This has run 1 time(s).
+This has run 2 time(s).
+This has run 3 time(s).
+This has run 4 time(s).
+This has run 5 time(s).
+=> 1..5</pre>
 				</div>
 				<span class="times example-button active">times</span><span class="each example-button hidden">each</span>
 			</section>
 		</article>
 		<article class="rightcol">
 			<section class="examples">
-				<h2>for loop</h2>
+				<h2>for <span class="word_loop">loop</span></h2>
 				<p>
 					For loops in JavaScript are a bit more involved, but still straight forward. The condition for the loops includes a variable counter assigment, a condition for the variable to assess, and an increment value.
 				</p>
 				<div class="example-body">
 				<pre>
-for (var i = 0; i < 5; i++) {
+for (var i = 0; i <= 5; i++) {
   console.log("Variable i is", i);
 }
-				</pre>
+Variable i is 0.
+Variable i is 1.
+Variable i is 2.
+Variable i is 3.
+Variable i is 4.
+Variable i is 5.
+=> undefined</pre>
 				</div>
 			</section>
 			<section class="examples">
-				<h2>for...in loop</h2>
+				<h2>for...in <span class="word_loop">loop</span></h2>
 				<p>
-					For...in loops are similar to Ruby's; they accept a variable for every element in an expression.
+					Similar to Ruby's for...in loop; they take a variable which applies an index to each element of an array or object. The variable must also be passed to the array or object in order to access the value.
 				</p>
 				<div class="example-body">
 				<pre>
 var array = [1, 2, 3, 4, 5]
 for (var i in array) {
-  console.log("Index", i, "has a value of", array[i]);
+  console.log("Index", i, "has a value of", array[i] + ".");
 }
-				</pre>
+Index has 0 a value of 1.
+Index has 1 a value of 2.
+Index has 2 a value of 3.
+Index has 3 a value of 4.
+Index has 4 a value of 5.
+=> undefined</pre>
 				</div>
 			</section>
 			<section class="examples">
-				<h2>while loop</h2>
+				<h2>while <span class="word_loop">loop</span></h2>
 				<p>
-					While loops in JavaScript execute the code as long as the condition remains true. It's a smart idea to be able to make the condition false, or else you will run into an infinite loop.
+					While loops in JavaScript execute the code as long as the condition remains true. It's a smart idea to be able to make the condition false, or else you will run into an infinite <span class="word_loop">loop</span>.
 				</p>
 				<div class="example-body">
 				<pre>
-var i = 0
+var i = 1
 while (i < 5) {
-  console.log("Value of i is", i);
+  console.log("This has run", i, "time(s).");
   i++;
 }
-				</pre>
+This has run 1 time(s).
+This has run 2 time(s).
+This has run 3 time(s).
+This has run 4 time(s).
+This has run 5 time(s).
+=> undefined</pre>
 				</div>
 			</section>
 		</article>

@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Ruby Classes - tech Ox</title>
+  <meta name="author" content="Oscar A Delgadillo">
+
+  
+  <meta name="description" content="ruby classes &hellip;or how the west was won February 28, 2016 Everything in Ruby is an object. A common mantra among Rubyists, this is meant to &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://countaight.github.io/blog/2016/02/28/ruby-classes/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="tech Ox" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">tech Ox</a></h1>
+  
+    <h2>Tackling Tech Headfirst</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="countaight.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Ruby Classes</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-02-28T19:42:13+00:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>28</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>7:42 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2>ruby classes</h2>
+
+<h3>&hellip;or how the west was won</h3>
+
+<h4>February 28, 2016</h4>
+
+<p>Everything in Ruby is an object. A common mantra among Rubyists, this is meant to remind you that, just like real-world objects, objects in Ruby respond to different methods and are classified by different attributes. Every object, in turn, can also be categorized by their class, which also happens to be an object in the sense that a person can be categorized by race or gender and race and gender itself, although are conceptual, are also things. Apart from the built-in classes offered in Ruby, you are allowed to create new ones to better run your code in groupings of associated attributes and behaviors. Here&rsquo;s how&hellip;</p>
+
+<p><code>class MinionCard attr_reader :faction, :name, :power def initialize(faction, name, power) @faction = faction @name = name @power = power end def play(base) check_other_cards(base) @other_cards.each do |card| if card.power &lt;= 2 @other_cards.delete(card) end end base.cards &lt;&lt; self end def check_other_cards(base) @other_cards = base.cards end def display puts "#{name} is part of the #{faction} faction, with a power of #{power.to_s}" end end</code></p>
+
+<p>But once again, I&rsquo;ve gotten ahead of myself. The code above is a representation of a type of card found in the shufflebuilding game called, Smash Up™. The premise of the game is very simple, you take two decks of 20 cards of different factions (such as zombies, ninjas, etc.), and you smash them together to create one 40-card deck. These decks contain minion and action cards that are meant to be placed on other cards that represent bases. An example of the base below for example&hellip;</p>
+
+<p><img src="../imgs/ruby-classes/smashupbase.jpg" alt="Smash Up Base" /> All right reserved to AEG © 2016</p>
+
+<p>&hellip;indicates that after the collective power of all minions there reaches 24, the base breaks and people are awarded the bigger numbers, or in this case everyone is awarded one victory point for every minion on there.</p>
+
+<p>And the possible minion cards in question look something like this:</p>
+
+<p><img src="../imgs/ruby-classes/saucywench.jpg" alt="Saucy Wench" /> All right reserved to AEG © 2016</p>
+
+<p>Some things to note, is that not every card has the same play ability, but for the sake of our example let&rsquo;s say they do, and each card can be created with a different faction, name, and power. Once a class has been created, it is said that instances of that class can be created containing the attributes supplied and with the ability to respond to the methods inside it (in our case the play method). Following this example then our Saucy Wench would be initialized as follows:</p>
+
+<p><code>saucy_wench = MinionCard.new("Pirates", "Saucy Wench", 3) =&gt; [the code produced simply tells you the object has been created]</code></p>
+
+<p>So how is this class doing its job, and how is the card being created? Let&rsquo;s break it down a bit. The first line of the code tells us that we&rsquo;re going to define a new class called MinionCard and contained in it will be unique attributes that can be defined at the object&rsquo;s creation time (these are called instance variables), as well the class will define some methods that the card will be able to respond to whenever we decide (these are called instance methods).</p>
+
+<p>The second line contains any instance variables that we would like to be able to read outside of the class, I&rsquo;ll explain what this means a little later. For now, moving to the next piece of code, we have one method that is very common with classes, and that is the initialize method. This method is unique because it can be included with every class in order to dictate what exactly will happen when the object is initialized or first created. It will accept arguments, if you require them for object creation, (in our example we require a faction name, name of the card, and a power number) and then it turns them into instance variables.</p>
+
+<h3>A little more on Instance Variables&hellip;</h3>
+
+<p>The use of instance variables, these are easily recognizable by their starting &ldquo;@&rdquo; symbol, is very important when it comes to classes. They are very similar to local variables with a bit of a larger scope. While local variables can only be used in the area they&rsquo;re defined in&ndash;outside of methods, inside a particular method, etc., instance variable can be used anywhere inside the classes, including inside and outside the methods defined in that class.</p>
+
+<p><code>class SimpleClass @instance_variable = "now you see me" def instance_method @instance_variable = "now you don't" end @instance_variable = "fin" end</code></p>
+
+<p>In the example above the <code>@instance_variable</code> is easily accessible throughout the class, including the instance_method in there that later redefines the variable.</p>
+
+<h3>&hellip;but back to the class</h3>
+
+<p>After the initialize method we have other methods that can be called on our Saucy Wench once created. There are some advanced concepts in those methods, but nonetheless contain some very key concepts. First, a few assumptions&ndash;let&rsquo;s assume that we have another class called <code>BaseCard</code> that we then use to create a base called &ldquo;Rhodes Plaza Mall&rdquo;. The purpose of this class, and the instance of it created thereafter, is to contain the information for the base card shown at the beginning of this post. Let&rsquo;s also assume that this class has an instance variable that allows it to store any cards &ldquo;played&rdquo; on it by adding it into an array (remember those?). The play method then can be called with an argument being the base card&hellip;</p>
+
+<p><code>saucy_wench.play(rhodes_plaza_mall) =&gt; #</code></p>
+
+<p>&hellip;it will then proceed to check if there are any other cards on that base by first running the <code>check_other_cards</code> method. The <code>check_other_cards</code> method will pass along the same argument variable (the base card name) and run it through what appears to be a <code>cards</code> method, but can actually also be an instance variable inside the BaseCard class that happens to be readable or writeable, or both (<code>attr_reader</code>, <code>attr_writer</code>, or <code>attr_accessor</code> respectively). We know that this will be the array that contains all the cards already &ldquo;played&rdquo; on that base, and it is placed inside another instance variable for the purpose of being passed around the class. Going back to the <code>play</code> method then, it gets a hold of the <code>base.cards</code> array as the newly acquired <code>@other_cards</code> instance variable, and then proceeds to iterate through those, deleting any cards of power 2 or less (I know, I know, the card says destroy just one, but for the sake of brevity&hellip;). Finally, the card then adds itself (<code>self</code>) to the roster of cards in the base.</p>
+
+<p>The final method created in the MinionCard class, is the <code>display</code>, when called on the <code>saucy_wench</code> card it will print out a nicely formatted message with the details of the card.</p>
+
+<p>With that I wrap up my explanation of classes, and I urge you to do some more research on them if they interest you.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Oscar A Delgadillo</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2016-02-28T19:42:13+00:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>28</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>7:42 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/classes/'>classes</a>, <a class='category' href='/blog/categories/coding/'>coding</a>, <a class='category' href='/blog/categories/object-oriented-programming/'>object-oriented programming</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://countaight.github.io/blog/2016/02/28/ruby-classes/" data-via="countaightblah" data-counturl="http://countaight.github.io/blog/2016/02/28/ruby-classes/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+      
+        <a class="basic-alignment right" href="/blog/2016/03/11/regular-expressions/" title="Next Post: regular expressions">regular expressions &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/03/11/regular-expressions/">Regular Expressions</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/28/ruby-classes/">Ruby Classes</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - Oscar A Delgadillo -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

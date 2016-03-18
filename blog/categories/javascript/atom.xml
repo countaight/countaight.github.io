@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Javascript | tech Ox]]></title>
+  <link href="http://countaight.github.io/blog/categories/javascript/atom.xml" rel="self"/>
+  <link href="http://countaight.github.io/"/>
+  <updated>2016-03-18T23:18:52+00:00</updated>
+  <id>http://countaight.github.io/</id>
+  <author>
+    <name><![CDATA[Oscar A Delgadillo]]></name>
+    <email><![CDATA[oscar.delgadillo@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Ruby Classes vs. Javascript Constructor Functions]]></title>
+    <link href="http://countaight.github.io/blog/2016/06/18/ruby-classes-vs-javascript-constructor-functions/"/>
+    <updated>2016-06-18T23:08:01+00:00</updated>
+    <id>http://countaight.github.io/blog/2016/06/18/ruby-classes-vs-javascript-constructor-functions</id>
+    <content type="html"><![CDATA[<h3>&hellip;to be or not to be&hellip;an object&hellip;</h3>
+
+<p><img src="../imgs/javascript-blog/HamletSkullHCSealous.jpg" alt="" /></p>
+
+<p>Up until this point I&rsquo;ve probably repeated the phrase &ldquo;everything is Ruby is an object&rdquo; ad nauseum. But it&rsquo;s for a good reason, it sets a precedent for the definition of everything to come. It is by which we determine our understanding of any interaction with programming objects, just as we would real life objects. For example, if I told you all objects in this world respond to touch, and all brown objects bark, and all small objects can be carried. Then you would know that a small brown object will respond to touch, bark, and can be carried, while you&rsquo;d expect a large brown object to respond to touch, bark, but not necessarily be able to be carried. These characteristics, and these behaviors we know for sure allow us to also modify objects and group them together to share traits. But how do these objects come to be? Surely in our world, creatures are birthed, materials are formed, and certain objects are manufactured. These object creators are just as varied when it comes to object-oriented programming languages. Ruby offers Classes and object instantiation, while JavaScript offers constructor functions.</p>
+
+<h3>Ruby Classes</h3>
+
+<p>I&rsquo;ve already gone into detail as to how Ruby classes work, in this <a href="ruby-classes.html">post</a>. But just to reiterate and to offer a new perspective, here is an example:</p>
+
+<p> ```class Toy
+   def initialize(type, name, size, has_fur)
+     @type = type
+     @name = name
+     @size = size
+     @has_fur = has_fur
+     @color = &ldquo;brown&rdquo;
+   end</p>
+
+<p>   def talk
+     p &ldquo;I love you&rdquo;
+   end</p>
+
+<p>   def is_cuddly?
+       if @has_fur
+         true
+       else
+         false
+       end
+     end
+end```</p>
+
+<p>In this class an object can be created by typing:</p>
+
+<p> <code>teddy = Toy.new("Plus", "Teddy", "small", true)</code></p>
+
+<p>The great thing about Ruby classes is that any object created after that gets to use any methods created in that class, and any methods created afterwards. Say whaaaaa? You can create methods after a class has been created. It&rsquo;s this feature that allows pre-existing classes like the Array class to be modified even though they are built-in to Ruby.</p>
+
+<p>The best way to visualize this is like everyone who has a wi-fi enabled teddy bear receiving automatic firmware updates. So in our example, let&rsquo;s say the manufacturers decide to add a new feature to our teddy bear, such as, shouting &ldquo;GET TO THE CHOPPA!&rdquo; Well that would just be a matter of opening up the class again and adding the method.</p>
+
+<pre><code>           ```class Toy
+             def shout
+               p "GET TO THE CHOPPA!"
+             end
+           end`
+</code></pre>
+
+<p>This immediately grants the shout ability to all existing Toys out there. This allows great flexibility in Ruby because it allows customization of not only classes but pre-existing objects. So if one your objects is not acting the way it should, just add a method to the class. This is quite possibly the biggest difference between Ruby classes and JavaScript constructor functions.</p>
+
+<h3>JavaScript Constructor Functions</h3>
+
+<p>So what is a contructor function? What is JavaScript? Who are you and what have you done with my dog? We all have these questions at one point in our lives. Well to answer the easiest question, JavaScript is another a scripting language predominatly used in web creation. Just like Ruby it is also an object-oriented language, but as you&rsquo;ll see, JavaScript defines objects quite differently.</p>
+
+<p>First of all, JavaScript objects are similar to Ruby hashes, using a variable you can save the state of an object in a key-value form, except in JavaScript they&rsquo;re called properties. These objects have properties that can be anything, a name, a number, even a function (which are similar to Ruby&rsquo;s methods). They take this form:</p>
+
+<pre><code>           ```var teddy = {
+             type: "Plush",
+             name: "Teddy",
+             size: "small",
+             color: "brown",
+             hasFur: true,
+             talk: function() {
+               console.log("I love you!");
+             },
+             isCuddly: function() {
+               if(hasFur === true) {
+                 return true;
+               } else {
+                 return false;
+               }
+             }
+           }```
+</code></pre>
+
+<p>And to create a new object you&hellip; well you actually have to type all that again. How tedious. Oh, but that&rsquo;s where constructor functions come in. A constructor function is a lot like an assembly line, it allows a template of an object to be created and then it spits out the objects at command. They look a bit like this:<br/>
+           `
+               <code>function Toy(type, name, size, hasFur) {
+                 this.type = type;
+                 this.name = name;
+                 this.size = size;
+                 this.hasFur = hasFur;
+                 this.color = "brown";
+                 this.talk = function() {
+                   console.log("I love you!");
+                 };
+                 this.isCuddly = function() {
+                   if(hasFur === true) {
+                     return true;
+                   } else {
+                     return false;
+                   }
+                 };
+               }</code></p>
+
+<p>And you can spit out a new toy by doing this:</p>
+
+<p><code>var teddy = new Toy("Plush", "Teddy", "small", true)</code></p>
+
+<p>Creating objects this way allows every subsequent toy to be whatever the template told it to be. In web creation this is great to create objects that represent different aspects of your site, such as users, sale items, or even to represent data visually. But going back to how it differs to Ruby&rsquo;s classes, well that&rsquo;s a bit of a quirk. In Javascript changing or adding methods or functions into the constructor function that was used to create the object, is impossible, and changing the properties of the existing objects won&rsquo;t grant other existing objects those abilities. This is like buying a toy that you modify at home, but no one else who has bought the toy, benefits from your alteration.</p>
+
+<p>But if JavaScript objects are not related to constructor functions, then what are they related or linked to? Well that would be prototypes, the subject of which is out of the scope of this blog post. If you would like to learn more however feel free to visit the following resources!</p>
+
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects">MDN - JavaScript Documentation: Working with Objects</a></li>
+<li><a href="http://raganwald.com/2014/01/19/prototypes-are-not-classes.html">Prototypes are not Classes</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

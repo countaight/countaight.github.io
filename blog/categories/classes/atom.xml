@@ -69,4 +69,37 @@
   </entry>
   
 </feed>
-                                                                                                          
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            r number) and then it turns them into instance variables.</p>
+
+<h3>A little more on Instance Variables&hellip;</h3>
+
+<p>The use of instance variables, these are easily recognizable by their starting &ldquo;@&rdquo; symbol, is very important when it comes to classes. They are very similar to local variables with a bit of a larger scope. While local variables can only be used in the area they&rsquo;re defined in&ndash;outside of methods, inside a particular method, etc., instance variable can be used anywhere inside the classes, including inside and outside the methods defined in that class.</p>
+
+<pre><code>class SimpleClass 
+  @instance_variable = "now you see me" 
+
+  def instance_method 
+    @instance_variable = "now you don't" 
+  end 
+
+  @instance_variable = "fin" 
+end`
+</code></pre>
+
+<p>In the example above the <code>@instance_variable</code> is easily accessible throughout the class, including the instance_method in there that later redefines the variable.</p>
+
+<h3>&hellip;but back to the class</h3>
+
+<p>After the initialize method we have other methods that can be called on our Saucy Wench once created. There are some advanced concepts in those methods, but nonetheless contain some very key concepts. First, a few assumptions&ndash;let&rsquo;s assume that we have another class called <code>BaseCard</code> that we then use to create a base called &ldquo;Rhodes Plaza Mall&rdquo;. The purpose of this class, and the instance of it created thereafter, is to contain the information for the base card shown at the beginning of this post. Let&rsquo;s also assume that this class has an instance variable that allows it to store any cards &ldquo;played&rdquo; on it by adding it into an array (remember those?). The play method then can be called with an argument being the base card&hellip;</p>
+
+<p><code>saucy_wench.play(rhodes_plaza_mall) =&gt; #</code></p>
+
+<p>&hellip;it will then proceed to check if there are any other cards on that base by first running the <code>check_other_cards</code> method. The <code>check_other_cards</code> method will pass along the same argument variable (the base card name) and run it through what appears to be a <code>cards</code> method, but can actually also be an instance variable inside the BaseCard class that happens to be readable or writeable, or both (<code>attr_reader</code>, <code>attr_writer</code>, or <code>attr_accessor</code> respectively). We know that this will be the array that contains all the cards already &ldquo;played&rdquo; on that base, and it is placed inside another instance variable for the purpose of being passed around the class. Going back to the <code>play</code> method then, it gets a hold of the <code>base.cards</code> array as the newly acquired <code>@other_cards</code> instance variable, and then proceeds to iterate through those, deleting any cards of power 2 or less (I know, I know, the card says destroy just one, but for the sake of brevity&hellip;). Finally, the card then adds itself (<code>self</code>) to the roster of cards in the base.</p>
+
+<p>The final method created in the MinionCard class, is the <code>display</code>, when called on the <code>saucy_wench</code> card it will print out a nicely formatted message with the details of the card.</p>
+
+<p>With that I wrap up my explanation of classes, and I urge you to do some more research on them if they interest you.</p>
+]]></content>
+  </entry>
+  
+</feed>

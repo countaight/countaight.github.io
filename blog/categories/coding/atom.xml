@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Coding | tech Ox]]></title>
   <link href="http://countaight.github.io/blog/categories/coding/atom.xml" rel="self"/>
   <link href="http://countaight.github.io/"/>
-  <updated>2016-03-18T21:20:42+00:00</updated>
+  <updated>2016-03-18T19:03:59+00:00</updated>
   <id>http://countaight.github.io/</id>
   <author>
     <name><![CDATA[Oscar A Delgadillo]]></name>
@@ -22,7 +22,7 @@
 
 <h3>&hellip;or /\r{3}/g\/[e|x]/</h3>
 
-<p><img src="http://imgs.xkcd.com/comics/regular_expressions.png" alt="xkcd Regex" /></p>
+<p>![xkcd Regex](<a href="http://imgs.xkcd.com/comics/regular_expres">http://imgs.xkcd.com/comics/regular_expres</a></p>
 
 <p>No, I have not messed up my subtitle&hellip; That&rsquo;s a pseudo representation of a regular expression. What&rsquo;s that you ask? Well let me start from the beginning&hellip; I&rsquo;ve discussed before, the slew of built-in methods or functions both, Ruby and JavaScript carry right out of the box. These allow you to create, manipulate, or instruct objects and the program itself to do something for you. After all, isn&rsquo;t that the point of programming? Right down to its source, code is just a series of instructions the computer can read and execute to do work for you. When using these methods/functions, if you recall, you can pass along arguments to further instruct that method/function on how to deal with your objects. Here&rsquo;s a quick example in Ruby:</p>
 
@@ -90,10 +90,8 @@ silly_string.split(/\d/)
 ]]></content>
   </entry>
   
-  <entry>
-    <title type="html"><![CDATA[Ruby Classes]]></title>
-    <link href="http://countaight.github.io/blog/2016/02/28/ruby-classes/"/>
-    <updated>2016-02-28T19:42:13+00:00</updated>
+</feed>
+                                                                                                                                                      d>
     <id>http://countaight.github.io/blog/2016/02/28/ruby-classes</id>
     <content type="html"><![CDATA[<h2>ruby classes</h2>
 
@@ -146,3 +144,4 @@ silly_string.split(/\d/)
   </entry>
   
 </feed>
+                                                                                                          

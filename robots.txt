@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://countaight.github.io/sitemap.xml 

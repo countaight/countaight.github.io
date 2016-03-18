@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Regular Expressions | tech Ox]]></title>
+  <link href="http://countaight.github.io/blog/categories/regular-expressions/atom.xml" rel="self"/>
+  <link href="http://countaight.github.io/"/>
+  <updated>2016-03-18T19:03:59+00:00</updated>
+  <id>http://countaight.github.io/</id>
+  <author>
+    <name><![CDATA[Oscar A Delgadillo]]></name>
+    <email><![CDATA[oscar.delgadillo@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Regular Expressions]]></title>
+    <link href="http://countaight.github.io/blog/2016/03/11/regular-expressions/"/>
+    <updated>2016-03-11T18:44:12+00:00</updated>
+    <id>http://countaight.github.io/blog/2016/03/11/regular-expressions</id>
+    <content type="html"><![CDATA[<h2>regular expressions</h2>
+
+<h3>&hellip;or /\r{3}/g\/[e|x]/</h3>
+
+<p>![xkcd Regex](<a href="http://imgs.xkcd.com/comics/regular_expres">http://imgs.xkcd.com/comics/regular_expres</a></p>
+
+<p>No, I have not messed up my subtitle&hellip; That&rsquo;s a pseudo representation of a regular expression. What&rsquo;s that you ask? Well let me start from the beginning&hellip; I&rsquo;ve discussed before, the slew of built-in methods or functions both, Ruby and JavaScript carry right out of the box. These allow you to create, manipulate, or instruct objects and the program itself to do something for you. After all, isn&rsquo;t that the point of programming? Right down to its source, code is just a series of instructions the computer can read and execute to do work for you. When using these methods/functions, if you recall, you can pass along arguments to further instruct that method/function on how to deal with your objects. Here&rsquo;s a quick example in Ruby:</p>
+
+<pre><code>name = "Oscar"
+name.reverse
+=&gt; "racsO"
+</code></pre>
+
+<p>In the code above I&rsquo;ve saved my name, as a string object, inside a variable I called &ldquo;name&rdquo;. This allows that specific state of my object to be saved and recalled when necessary. Well, on the next line, I use the reverse method on the variable, which happens to accept the method because, remember, name is considered a string object due to its containment of &ldquo;Oscar&rdquo;. By calling this method, the string is taken and reversed, just as the name implies. This new invocation of &ldquo;Oscar&rdquo; however is just the result of calling that method, and so the variable and the contents themselves haven&rsquo;t actually been touched. You can verify this by typing in name again and getting &ldquo;Oscar&rdquo; as a result.</p>
+
+<p>But moving on, non-destructive methods, meaning those that haven&rsquo;t permenantly altered the state of the variable, are useful for when you want to call the results of those methods and save them elsewhere. This, coupled with the ability to use arguments, further customizing the way the method acts, can get you very specific results. You&rsquo;ll actually start to notice that some methods, while not initially requiring any arguments, will accept optional arguments in the form of regular expressions, or regex.</p>
+
+<h3>A little history&hellip;</h3>
+
+<p>No, regex is not the latest hip drug on the market&hellip; Regular expressions started out as an endeavor to understand the way the brain thought about patterns. Moving from the field of neuroscience to math, Stephen Kleene used the initial model to form an algebraic algorithm. This algorithm, then jumped shipped and was incorporated as a program to search through text, very early in the life of computers. After years of modification and technical progress, I doubt modern regular expressions look like their ancestral algorithm, nonetheless, they ultimately have the same goal&ndash;recognizing patterns in text.</p>
+
+<h3>Regex in practice</h3>
+
+<p>Going back to our other programming languages, and digressing here, it&rsquo;s time for examples. A great, simple example of regex in action is using it with Ruby&rsquo;s split method. The split method is called on a string and with no arguments, turns the string into an array with the only element being the string it was called on. Split can also be called with a string argument that becomes the delimiter for how the string should be broken up. For example, running the method with the argument being &ldquo;&rdquo;, every character (including spaces) becomes an element in an array. Finally, your third option is using a regex to define the pattern for the delimiter.</p>
+
+<pre><code>name = "Oscar"
+name.split
+=&gt; ["Oscar"]
+
+name.split("") # string delimiter
+=&gt; ["O", "s", "c", "a", "r"]
+
+name.split(//) # regex delimiter
+=&gt; ["O", "s", "c", "a", "r"]
+</code></pre>
+
+<p>If you notice supplying (&ldquo;&rdquo;) and (//) gave the same result. That&rsquo;s because the string argument acts like a literal symbol in regex. What this means is that Ruby searches in that string for that particular delimiter and that becomes the basis for the split. You can quickly start to see how that would be a problem if you happen to have different types of symbols you want as a delimiter.</p>
+
+<p>Say you have&hellip;</p>
+
+<pre><code>silly_string = "145-652.684-226"
+silly_string.split("-")
+=&gt; ["145", "652.684", "226"]
+
+silly_string.split(".")
+=&gt; ["145-652", "684-226"]
+</code></pre>
+
+<p>You can see in the example how inadequate it would be to just designate one delimiter if there are different kinds. This is where regex can help. Apart from the literal symbols, which searches for that specific symbol (/2/ for example would split the string as if using &ldquo;2&rdquo; as the argument), you can use what are called metacharacters. These give a general search for a specific character type. In our example, if we wanted to seperate the string to have only the numbers we could use /\D/, the forward slashes denote the regular expression, while \D tells us it will use anything that is NOT a digit. Employing it is as follows.</p>
+
+<pre><code>silly_string = "145-652.684-226"
+silly_string.split(/\D/)
+=&gt; ["145", "652", "684", "226"]
+
+silly_string.split(/\d/)
+=&gt; ["", "", "", ".", "", "", ".", "", "", "-"]
+</code></pre>
+
+<p>That second example I used the metacharacter \d, which means any digit. As you can see this has divided the string using the digits as a delimiter, creating an array of empty strings, the &ldquo;&rdquo;, and the punctuation. Again, this is a simple search, where regex gets elaborate, and quite frankly, intimidating is when you start using quantifiers, group constructs, and modifiers. Here&rsquo;s a quick list of the availble characters.</p>
+
+<p><img src="http://media.cheatography.com/storage/thumb/davechild_regular-expressions.600.jpg?last=1420197091" alt="Regex Cheat Sheet" /></p>
+
+<p>The interactive cheat sheet can be found <a href="http://www.cheatography.com/davechild/cheat-sheets/regular-expressions">here</a>.</p>
+
+<p>The great thing about regex is that it is widely accepted across many programming languages. They no only work with methods used to find text, but they also work great when validating web forms, such as making sure you input a proper email (an example of which is &ldquo;^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$&rdquo;, or the password contains specific types of characters.</p>
+
+<p>Another great this about regex, once you understand what you&rsquo;re reading, is that you&rsquo;ll realize that it is actually very logical, modifiers such as + or * apply to whatever is directly to the left of it and grouping characters like [] or () apply to anything inside it. I believe with a little practice and some regular exposure to regex, it could become quite easy to spot and dissect regular expressions, and furter, be able to incorporate them properly in any aspect of programming.</p>
+
+<p>For more information, and a neat site to try out regular expressions check out <a href="https://regex101.com/%22>regex101%20Site">regex101 Site</a>.</p>
+]]></

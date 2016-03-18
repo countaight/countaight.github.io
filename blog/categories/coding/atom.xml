@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Coding | tech Ox]]></title>
   <link href="http://countaight.github.io/blog/categories/coding/atom.xml" rel="self"/>
   <link href="http://countaight.github.io/"/>
-  <updated>2016-03-18T23:24:10+00:00</updated>
+  <updated>2016-03-18T19:03:59+00:00</updated>
   <id>http://countaight.github.io/</id>
   <author>
     <name><![CDATA[Oscar A Delgadillo]]></name>
@@ -22,7 +22,7 @@
 
 <h3>&hellip;or /\r{3}/g\/[e|x]/</h3>
 
-<p><img src="http://imgs.xkcd.com/comics/regular_expressions.png" alt="xkcd Regex" /></p>
+<p>![xkcd Regex](<a href="http://imgs.xkcd.com/comics/regular_expres">http://imgs.xkcd.com/comics/regular_expres</a></p>
 
 <p>No, I have not messed up my subtitle&hellip; That&rsquo;s a pseudo representation of a regular expression. What&rsquo;s that you ask? Well let me start from the beginning&hellip; I&rsquo;ve discussed before, the slew of built-in methods or functions both, Ruby and JavaScript carry right out of the box. These allow you to create, manipulate, or instruct objects and the program itself to do something for you. After all, isn&rsquo;t that the point of programming? Right down to its source, code is just a series of instructions the computer can read and execute to do work for you. When using these methods/functions, if you recall, you can pass along arguments to further instruct that method/function on how to deal with your objects. Here&rsquo;s a quick example in Ruby:</p>
 
@@ -90,131 +90,61 @@ silly_string.split(/\d/)
 ]]></content>
   </entry>
   
-  <entry>
-    <title type="html"><![CDATA[Ruby Classes vs. Javascript Constructor Functions]]></title>
-    <link href="http://countaight.github.io/blog/2016/03/06/ruby-classes-vs-javascript-constructor-functions/"/>
-    <updated>2016-03-06T23:08:01+00:00</updated>
-    <id>http://countaight.github.io/blog/2016/03/06/ruby-classes-vs-javascript-constructor-functions</id>
-    <content type="html"><![CDATA[<h3>&hellip;to be or not to be&hellip;an object&hellip;</h3>
-
-<p><img src="../imgs/javascript-blog/HamletSkullHCSealous.jpg" alt="" /></p>
-
-<p>Up until this point I&rsquo;ve probably repeated the phrase &ldquo;everything is Ruby is an object&rdquo; ad nauseum. But it&rsquo;s for a good reason, it sets a precedent for the definition of everything to come. It is by which we determine our understanding of any interaction with programming objects, just as we would real life objects. For example, if I told you all objects in this world respond to touch, and all brown objects bark, and all small objects can be carried. Then you would know that a small brown object will respond to touch, bark, and can be carried, while you&rsquo;d expect a large brown object to respond to touch, bark, but not necessarily be able to be carried. These characteristics, and these behaviors we know for sure allow us to also modify objects and group them together to share traits. But how do these objects come to be? Surely in our world, creatures are birthed, materials are formed, and certain objects are manufactured. These object creators are just as varied when it comes to object-oriented programming languages. Ruby offers Classes and object instantiation, while JavaScript offers constructor functions.</p>
-
-<h3>Ruby Classes</h3>
-
-<p>I&rsquo;ve already gone into detail as to how Ruby classes work, in this <a href="ruby-classes.html">post</a>. But just to reiterate and to offer a new perspective, here is an example:</p>
-
-<p> ```class Toy
-   def initialize(type, name, size, has_fur)
-     @type = type
-     @name = name
-     @size = size
-     @has_fur = has_fur
-     @color = &ldquo;brown&rdquo;
-   end</p>
-
-<p>   def talk
-     p &ldquo;I love you&rdquo;
-   end</p>
-
-<p>   def is_cuddly?
-       if @has_fur
-         true
-       else
-         false
-       end
-     end
-end```</p>
-
-<p>In this class an object can be created by typing:</p>
-
-<p> <code>teddy = Toy.new("Plus", "Teddy", "small", true)</code></p>
-
-<p>The great thing about Ruby classes is that any object created after that gets to use any methods created in that class, and any methods created afterwards. Say whaaaaa? You can create methods after a class has been created. It&rsquo;s this feature that allows pre-existing classes like the Array class to be modified even though they are built-in to Ruby.</p>
-
-<p>The best way to visualize this is like everyone who has a wi-fi enabled teddy bear receiving automatic firmware updates. So in our example, let&rsquo;s say the manufacturers decide to add a new feature to our teddy bear, such as, shouting &ldquo;GET TO THE CHOPPA!&rdquo; Well that would just be a matter of opening up the class again and adding the method.</p>
-
-<pre><code>           ```class Toy
-             def shout
-               p "GET TO THE CHOPPA!"
-             end
-           end`
-</code></pre>
-
-<p>This immediately grants the shout ability to all existing Toys out there. This allows great flexibility in Ruby because it allows customization of not only classes but pre-existing objects. So if one your objects is not acting the way it should, just add a method to the class. This is quite possibly the biggest difference between Ruby classes and JavaScript constructor functions.</p>
-
-<h3>JavaScript Constructor Functions</h3>
-
-<p>So what is a contructor function? What is JavaScript? Who are you and what have you done with my dog? We all have these questions at one point in our lives. Well to answer the easiest question, JavaScript is another a scripting language predominatly used in web creation. Just like Ruby it is also an object-oriented language, but as you&rsquo;ll see, JavaScript defines objects quite differently.</p>
-
-<p>First of all, JavaScript objects are similar to Ruby hashes, using a variable you can save the state of an object in a key-value form, except in JavaScript they&rsquo;re called properties. These objects have properties that can be anything, a name, a number, even a function (which are similar to Ruby&rsquo;s methods). They take this form:</p>
-
-<pre><code>           ```var teddy = {
-             type: "Plush",
-             name: "Teddy",
-             size: "small",
-             color: "brown",
-             hasFur: true,
-             talk: function() {
-               console.log("I love you!");
-             },
-             isCuddly: function() {
-               if(hasFur === true) {
-                 return true;
-               } else {
-                 return false;
-               }
-             }
-           }```
-</code></pre>
-
-<p>And to create a new object you&hellip; well you actually have to type all that again. How tedious. Oh, but that&rsquo;s where constructor functions come in. A constructor function is a lot like an assembly line, it allows a template of an object to be created and then it spits out the objects at command. They look a bit like this:<br/>
-           `
-               <code>function Toy(type, name, size, hasFur) {
-                 this.type = type;
-                 this.name = name;
-                 this.size = size;
-                 this.hasFur = hasFur;
-                 this.color = "brown";
-                 this.talk = function() {
-                   console.log("I love you!");
-                 };
-                 this.isCuddly = function() {
-                   if(hasFur === true) {
-                     return true;
-                   } else {
-                     return false;
-                   }
-                 };
-               }</code></p>
-
-<p>And you can spit out a new toy by doing this:</p>
-
-<p><code>var teddy = new Toy("Plush", "Teddy", "small", true)</code></p>
-
-<p>Creating objects this way allows every subsequent toy to be whatever the template told it to be. In web creation this is great to create objects that represent different aspects of your site, such as users, sale items, or even to represent data visually. But going back to how it differs to Ruby&rsquo;s classes, well that&rsquo;s a bit of a quirk. In Javascript changing or adding methods or functions into the constructor function that was used to create the object, is impossible, and changing the properties of the existing objects won&rsquo;t grant other existing objects those abilities. This is like buying a toy that you modify at home, but no one else who has bought the toy, benefits from your alteration.</p>
-
-<p>But if JavaScript objects are not related to constructor functions, then what are they related or linked to? Well that would be prototypes, the subject of which is out of the scope of this blog post. If you would like to learn more however feel free to visit the following resources!</p>
-
-<ul>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects">MDN - JavaScript Documentation: Working with Objects</a></li>
-<li><a href="http://raganwald.com/2014/01/19/prototypes-are-not-classes.html">Prototypes are not Classes</a></li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ruby Classes]]></title>
-    <link href="http://countaight.github.io/blog/2016/02/28/ruby-classes/"/>
-    <updated>2016-02-28T19:42:13+00:00</updated>
+</feed>
+                                                                                                                                                      d>
     <id>http://countaight.github.io/blog/2016/02/28/ruby-classes</id>
-    <content type="html"><![CDATA[<h3>&hellip;or how the west was won</h3>
+    <content type="html"><![CDATA[<h2>ruby classes</h2>
+
+<h3>&hellip;or how the west was won</h3>
 
 <h4>February 28, 2016</h4>
 
 <p>Everything in Ruby is an object. A common mantra among Rubyists, this is meant to remind you that, just like real-world objects, objects in Ruby respond to different methods and are classified by different attributes. Every object, in turn, can also be categorized by their class, which also happens to be an object in the sense that a person can be categorized by race or gender and race and gender itself, although are conceptual, are also things. Apart from the built-in classes offered in Ruby, you are allowed to create new ones to better run your code in groupings of associated attributes and behaviors. Here&rsquo;s how&hellip;</p>
+
+<p><code>class MinionCard attr_reader :faction, :name, :power def initialize(faction, name, power) @faction = faction @name = name @power = power end def play(base) check_other_cards(base) @other_cards.each do |card| if card.power &lt;= 2 @other_cards.delete(card) end end base.cards &lt;&lt; self end def check_other_cards(base) @other_cards = base.cards end def display puts "#{name} is part of the #{faction} faction, with a power of #{power.to_s}" end end</code></p>
+
+<p>But once again, I&rsquo;ve gotten ahead of myself. The code above is a representation of a type of card found in the shufflebuilding game called, Smash Up™. The premise of the game is very simple, you take two decks of 20 cards of different factions (such as zombies, ninjas, etc.), and you smash them together to create one 40-card deck. These decks contain minion and action cards that are meant to be placed on other cards that represent bases. An example of the base below for example&hellip;</p>
+
+<p><img src="../imgs/ruby-classes/smashupbase.jpg" alt="Smash Up Base" /> All right reserved to AEG © 2016</p>
+
+<p>&hellip;indicates that after the collective power of all minions there reaches 24, the base breaks and people are awarded the bigger numbers, or in this case everyone is awarded one victory point for every minion on there.</p>
+
+<p>And the possible minion cards in question look something like this:</p>
+
+<p><img src="../imgs/ruby-classes/saucywench.jpg" alt="Saucy Wench" /> All right reserved to AEG © 2016</p>
+
+<p>Some things to note, is that not every card has the same play ability, but for the sake of our example let&rsquo;s say they do, and each card can be created with a different faction, name, and power. Once a class has been created, it is said that instances of that class can be created containing the attributes supplied and with the ability to respond to the methods inside it (in our case the play method). Following this example then our Saucy Wench would be initialized as follows:</p>
+
+<p><code>saucy_wench = MinionCard.new("Pirates", "Saucy Wench", 3) =&gt; [the code produced simply tells you the object has been created]</code></p>
+
+<p>So how is this class doing its job, and how is the card being created? Let&rsquo;s break it down a bit. The first line of the code tells us that we&rsquo;re going to define a new class called MinionCard and contained in it will be unique attributes that can be defined at the object&rsquo;s creation time (these are called instance variables), as well the class will define some methods that the card will be able to respond to whenever we decide (these are called instance methods).</p>
+
+<p>The second line contains any instance variables that we would like to be able to read outside of the class, I&rsquo;ll explain what this means a little later. For now, moving to the next piece of code, we have one method that is very common with classes, and that is the initialize method. This method is unique because it can be included with every class in order to dictate what exactly will happen when the object is initialized or first created. It will accept arguments, if you require them for object creation, (in our example we require a faction name, name of the card, and a power number) and then it turns them into instance variables.</p>
+
+<h3>A little more on Instance Variables&hellip;</h3>
+
+<p>The use of instance variables, these are easily recognizable by their starting &ldquo;@&rdquo; symbol, is very important when it comes to classes. They are very similar to local variables with a bit of a larger scope. While local variables can only be used in the area they&rsquo;re defined in&ndash;outside of methods, inside a particular method, etc., instance variable can be used anywhere inside the classes, including inside and outside the methods defined in that class.</p>
+
+<p><code>class SimpleClass @instance_variable = "now you see me" def instance_method @instance_variable = "now you don't" end @instance_variable = "fin" end</code></p>
+
+<p>In the example above the <code>@instance_variable</code> is easily accessible throughout the class, including the instance_method in there that later redefines the variable.</p>
+
+<h3>&hellip;but back to the class</h3>
+
+<p>After the initialize method we have other methods that can be called on our Saucy Wench once created. There are some advanced concepts in those methods, but nonetheless contain some very key concepts. First, a few assumptions&ndash;let&rsquo;s assume that we have another class called <code>BaseCard</code> that we then use to create a base called &ldquo;Rhodes Plaza Mall&rdquo;. The purpose of this class, and the instance of it created thereafter, is to contain the information for the base card shown at the beginning of this post. Let&rsquo;s also assume that this class has an instance variable that allows it to store any cards &ldquo;played&rdquo; on it by adding it into an array (remember those?). The play method then can be called with an argument being the base card&hellip;</p>
+
+<p><code>saucy_wench.play(rhodes_plaza_mall) =&gt; #</code></p>
+
+<p>&hellip;it will then proceed to check if there are any other cards on that base by first running the <code>check_other_cards</code> method. The <code>check_other_cards</code> method will pass along the same argument variable (the base card name) and run it through what appears to be a <code>cards</code> method, but can actually also be an instance variable inside the BaseCard class that happens to be readable or writeable, or both (<code>attr_reader</code>, <code>attr_writer</code>, or <code>attr_accessor</code> respectively). We know that this will be the array that contains all the cards already &ldquo;played&rdquo; on that base, and it is placed inside another instance variable for the purpose of being passed around the class. Going back to the <code>play</code> method then, it gets a hold of the <code>base.cards</code> array as the newly acquired <code>@other_cards</code> instance variable, and then proceeds to iterate through those, deleting any cards of power 2 or less (I know, I know, the card says destroy just one, but for the sake of brevity&hellip;). Finally, the card then adds itself (<code>self</code>) to the roster of cards in the base.</p>
+
+<p>The final method created in the MinionCard class, is the <code>display</code>, when called on the <code>saucy_wench</code> card it will print out a nicely formatted message with the details of the card.</p>
+
+<p>With that I wrap up my explanation of classes, and I urge you to do some more research on them if they interest you.</p>
+]]></content>
+  </entry>
+  
+</feed>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       lip;</p>
 
 <pre><code>class MinionCard 
   attr_reader :faction, :name, :power 
@@ -294,3 +224,4 @@ end`
   </entry>
   
 </feed>
+                

@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Enumerable Methods: Inject - tech Ox</title>
+  <meta name="author" content="Oscar A Delgadillo">
+
+  
+  <meta name="description" content="enumerable methods: inject &hellip;or the physics of a clown car We&rsquo;ve all seen that archetypal clown car scene in the movies or tv shows&ndash &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://countaight.github.io/blog/2016/02/21/enumerable-methods-inject/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="tech Ox" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">tech Ox</a></h1>
+  
+    <h2>Tackling Tech Headfirst</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="countaight.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Enumerable Methods: Inject</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-02-21T23:36:01+00:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2016</span></span> <span class='time'>11:36 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2>enumerable methods: inject</h2>
+
+<h3>&hellip;or the physics of a clown car</h3>
+
+<p><img src="../imgs/enumerable/krustyklowncar.jpg" alt="Krusty Klown Car" /></p>
+
+<p>We&rsquo;ve all seen that archetypal clown car scene in the movies or tv shows&ndash;the one where an impossible amount of clowns get out or into a small car. It actually reminds me of a very neat method for objects in the Ruby language known as <em>enumerables</em>. But perhaps I&rsquo;m getting a little ahead of myself. Let me take you back to the beginning, to the root of the language, the core of programming, the genesis of objects&hellip; ok&hellip; you get it.</p>
+
+<p>In a previous <a href="array-hashes.html">post</a>, I covered a topic on arrays and hashes. Remember those? If not, they look a little like this:</p>
+
+<pre><code>clowns_array = ["noodles", "seesaw", "oopsie", 
+                   "lopsweat", "hoohah", "jitters", 
+                   "sir wide bottom"]
+=&gt; ["noodles", "seesaw", "oopsie", "lopsweat", "hoohah", "jitters", "sir 
+wide bottom"]
+
+clown_car_hash = { clown_1: "noodles", 
+                   clown_2: "seesaw", 
+                   clown_3: "oopsie", 
+                   clown_4: "lopsweat", 
+                   clown_5: "hoohah", 
+                   clown_6: "jitters", 
+                   clown_7: "sir wide bottom" }
+=&gt; {clown_1: "noodles", clown_2: "seesaw", clown_3: "oopsie", clown_4: 
+"lopsweat", clown_5: "hoohah", clown_6: "jitters", clown_7: "sir 
+wide bottom"}
+</code></pre>
+
+<p>Everything in Ruby is considered an object, and every object in part has a class, but it all ultimately ends up being an object. So why have that class-object distinction? Well classes simply help organize the attributes and behaviors of an object so they become predictable. Just like objects in the real world, objects in Ruby can be described by how and what they respond to. For example, had you a shadowy, fuzzy figure in front of you, and you happen to call its bark behavior (or method as it is known in Ruby), and it responds, &ldquo;woof!&rdquo;, then you know you might be dealing with an object of the Dog class. These methods aren&rsquo;t only useful for determining what you&rsquo;re dealing with, they can also alter, mold, or expand the use of the object.</p>
+
+<p>Following this train of thought, then, we can start doing more with arrays and hashes, container objects, that are part of the Enumerable class. What this means is that, arrays and hashes contain elements that can be enumerated, or counted on one by one. It&rsquo;s by this enumerable trait, that most methods related to arrays and hashes allow you to read (<code>array.first</code> for example, diplays the first element) or control the contents, or elements, inside them. And there are a number of them, but the one that I will focus on, is the inject method.</p>
+
+<pre><code>clowns_array.inject(Hash.new(0)) do |car, clown|
+  p "#{car[(clowns_array.index(clown)+1)] = clown} &lt;&lt; #{clown}"
+  car
+end
+"noodles &lt;&lt; noodles"
+"seesaw &lt;&lt; seesaw"
+"oopsie &lt;&lt; oopsie"
+"lopsweat &lt;&lt; lopsweat"
+"hoohah &lt;&lt; hoohah"
+"jitters &lt;&lt; jitters"
+"sir wide bottom &lt;&lt; sir wide bottom"
+=&gt; {1=&gt;"noodles", 2=&gt;"seesaw", 3=&gt;"oopsie", 4=&gt;"lopsweat", 5=&gt;"hoohah", 6=&gt;"jitters", 7=&gt;"sir wide bottom"}
+</code></pre>
+
+<p>Right now don&rsquo;t worry if you don&rsquo;t understand the code up there. It&rsquo;s not normally how you would use the method, and I did it that way to expose the inner workings of the method. I will break it down slowly. On the surface, the inject method can be a very simple method to condense (or reduce) the contents of an array. Mathematically, this means you can take an array of numbers and squish them together to get their sum, or squish them with multiplication and get the factorial.</p>
+
+<pre><code>mathary = (1..5).to_a
+=&gt; [1, 2, 3, 4, 5]
+
+mathary.inject(:*)
+=&gt; 120
+</code></pre>
+
+<p>The code above creates a math array with the number one through five, and using the inject method with the multiplication symbol, reduces the numbers to a single number&ndash;the result of multiplying all those numbers together. But using the method this way makes the inject method appear to be a misnomer, why is it called inject? Ah, therein lies our clown car example&hellip;</p>
+
+<h3>The Anatomy of Enumerable#inject</h3>
+
+<p><img src="../imgs/enumerable/Inject_method.jpg" alt="Inject Method" /></p>
+
+<p>Taking the method and expanding it to its most complicated use case, we can see that the method is called on an array, it takes an argument in parenthesis, which sets the initial value (anything from a number to another new array, or new hash&ndash;coincidentally this is the type of object that will be returned if no other is specified), finally a block is passed with further instructions. Some notable things about the block: the initial value is set as one of the variables (in our case the car), and the iteration of each element is set to the second variable (clown), this means that the code will execute every time using each clown once. This code indicates that the clown should be <em>injected</em> into the clown car by making the clown index in the array (one is added because array indices start with 0) the hash key, and the clown name becomes the value (again review the previous post to understand this). Finally, the car is returned to become the car variable again, and the next clown is <em>injected</em>, if the last line is omitted, then the last clown used becomes the new car variable and the next clown is then attempted to be <em>injected</em>. As you can see, that doesn&rsquo;t make sense in this context, a clown being injected into another clown&ndash;hilarious as that actually sounds, but it is the reason why using <em>inject</em> mathematically, works. Essentially, you&rsquo;re injecting each value back on the result of the operations performed on the previous values.</p>
+
+<p>But now back to our clown car example, a diagram might help visualize what is going on. If the initial value, the clown car, is the hash (the two curly braces), and the clowns available is the array, then the code process looks like this:</p>
+
+<p><img src="../imgs/enumerable/Inject_diagram.jpg" alt="Inject Diagram" /></p>
+
+<p>And with that, I urge you to imagine these clowns hilariously jumping into a small car with seemingly limited space. If you would like to learn more about Ruby Enumerable methods you can also check out the Ruby Docs <a href="http://ruby-doc.org/core-2.2.0/Enumerable.html">here</a>. Also feel free to reach out by using my newly created contact page <a href="../contact.html">here</a>.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Oscar A Delgadillo</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2016-02-21T23:36:01+00:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2016</span></span> <span class='time'>11:36 pm</span></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://countaight.github.io/blog/2016/02/21/enumerable-methods-inject/" data-via="countaightblah" data-counturl="http://countaight.github.io/blog/2016/02/21/enumerable-methods-inject/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+      
+        <a class="basic-alignment right" href="/blog/2016/02/28/ruby-classes/" title="Next Post: ruby classes">ruby classes &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/03/11/regular-expressions/">Regular Expressions</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/03/06/ruby-classes-vs-javascript-constructor-functions/">Ruby Classes vs. Javascript Constructor Functions</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/28/ruby-classes/">Ruby Classes</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/21/enumerable-methods-inject/">Enumerable Methods: Inject</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - Oscar A Delgadillo -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -9,7 +9,7 @@ categories: [regex, regular expressions, coding, programming]
 ## regular expressions
 ### ...or /\r{3}/g\/[e|x]/
 
-![xkcd Regex](http://imgs.xkcd.com/comics/regular_expres
+![xkcd Regex](http://imgs.xkcd.com/comics/regular_expressions.png)
 
 No, I have not messed up my subtitle... That's a pseudo representation of a regular expression. What's that you ask? Well let me start from the beginning... I've discussed before, the slew of built-in methods or functions both, Ruby and JavaScript carry right out of the box. These allow you to create, manipulate, or instruct objects and the program itself to do something for you. After all, isn't that the point of programming? Right down to its source, code is just a series of instructions the computer can read and execute to do work for you. When using these methods/functions, if you recall, you can pass along arguments to further instruct that method/function on how to deal with your objects. Here's a quick example in Ruby:
 

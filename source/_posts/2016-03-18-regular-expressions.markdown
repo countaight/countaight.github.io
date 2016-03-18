@@ -1,0 +1,72 @@
+---
+layout: post
+title: "regular expressions"
+date: 2016-03-11 18:44:12 +0000
+comments: true
+categories: [regex, regular expressions, coding, programming]
+---
+
+## regular expressions
+### ...or /\r{3}/g\/[e|x]/
+
+![xkcd Regex](http://imgs.xkcd.com/comics/regular_expres
+
+No, I have not messed up my subtitle... That's a pseudo representation of a regular expression. What's that you ask? Well let me start from the beginning... I've discussed before, the slew of built-in methods or functions both, Ruby and JavaScript carry right out of the box. These allow you to create, manipulate, or instruct objects and the program itself to do something for you. After all, isn't that the point of programming? Right down to its source, code is just a series of instructions the computer can read and execute to do work for you. When using these methods/functions, if you recall, you can pass along arguments to further instruct that method/function on how to deal with your objects. Here's a quick example in Ruby:
+
+    name = "Oscar"
+    name.reverse
+    => "racsO"
+
+In the code above I've saved my name, as a string object, inside a variable I called "name". This allows that specific state of my object to be saved and recalled when necessary. Well, on the next line, I use the reverse method on the variable, which happens to accept the method because, remember, name is considered a string object due to its containment of "Oscar". By calling this method, the string is taken and reversed, just as the name implies. This new invocation of "Oscar" however is just the result of calling that method, and so the variable and the contents themselves haven't actually been touched. You can verify this by typing in name again and getting "Oscar" as a result.
+
+But moving on, non-destructive methods, meaning those that haven't permenantly altered the state of the variable, are useful for when you want to call the results of those methods and save them elsewhere. This, coupled with the ability to use arguments, further customizing the way the method acts, can get you very specific results. You'll actually start to notice that some methods, while not initially requiring any arguments, will accept optional arguments in the form of regular expressions, or regex.
+
+### A little history...
+
+No, regex is not the latest hip drug on the market... Regular expressions started out as an endeavor to understand the way the brain thought about patterns. Moving from the field of neuroscience to math, Stephen Kleene used the initial model to form an algebraic algorithm. This algorithm, then jumped shipped and was incorporated as a program to search through text, very early in the life of computers. After years of modification and technical progress, I doubt modern regular expressions look like their ancestral algorithm, nonetheless, they ultimately have the same goal--recognizing patterns in text. 
+
+### Regex in practice
+
+Going back to our other programming languages, and digressing here, it's time for examples. A great, simple example of regex in action is using it with Ruby's split method. The split method is called on a string and with no arguments, turns the string into an array with the only element being the string it was called on. Split can also be called with a string argument that becomes the delimiter for how the string should be broken up. For example, running the method with the argument being "", every character (including spaces) becomes an element in an array. Finally, your third option is using a regex to define the pattern for the delimiter.
+
+    name = "Oscar"
+    name.split
+    => ["Oscar"]
+    
+    name.split("") # string delimiter
+    => ["O", "s", "c", "a", "r"]
+    
+    name.split(//) # regex delimiter
+    => ["O", "s", "c", "a", "r"]
+
+If you notice supplying ("") and (//) gave the same result. That's because the string argument acts like a literal symbol in regex. What this means is that Ruby searches in that string for that particular delimiter and that becomes the basis for the split. You can quickly start to see how that would be a problem if you happen to have different types of symbols you want as a delimiter.
+
+Say you have...
+
+    silly_string = "145-652.684-226"
+    silly_string.split("-")
+    => ["145", "652.684", "226"]
+    
+    silly_string.split(".")
+    => ["145-652", "684-226"]
+
+You can see in the example how inadequate it would be to just designate one delimiter if there are different kinds. This is where regex can help. Apart from the literal symbols, which searches for that specific symbol (/2/ for example would split the string as if using "2" as the argument), you can use what are called metacharacters. These give a general search for a specific character type. In our example, if we wanted to seperate the string to have only the numbers we could use /\D/, the forward slashes denote the regular expression, while \D tells us it will use anything that is NOT a digit. Employing it is as follows. 
+
+    silly_string = "145-652.684-226"
+    silly_string.split(/\D/)
+    => ["145", "652", "684", "226"]
+    
+    silly_string.split(/\d/)
+    => ["", "", "", ".", "", "", ".", "", "", "-"]
+
+That second example I used the metacharacter \d, which means any digit. As you can see this has divided the string using the digits as a delimiter, creating an array of empty strings, the "", and the punctuation. Again, this is a simple search, where regex gets elaborate, and quite frankly, intimidating is when you start using quantifiers, group constructs, and modifiers. Here's a quick list of the availble characters.
+
+![Regex Cheat Sheet](http://media.cheatography.com/storage/thumb/davechild_regular-expressions.600.jpg?last=1420197091)
+
+The interactive cheat sheet can be found [here](http://www.cheatography.com/davechild/cheat-sheets/regular-expressions).
+
+The great thing about regex is that it is widely accepted across many programming languages. They no only work with methods used to find text, but they also work great when validating web forms, such as making sure you input a proper email (an example of which is "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$", or the password contains specific types of characters.
+
+Another great this about regex, once you understand what you're reading, is that you'll realize that it is actually very logical, modifiers such as + or * apply to whatever is directly to the left of it and grouping characters like [] or () apply to anything inside it. I believe with a little practice and some regular exposure to regex, it could become quite easy to spot and dissect regular expressions, and furter, be able to incorporate them properly in any aspect of programming.
+
+For more information, and a neat site to try out regular expressions check out [regex101 Site](https://regex101.com/">regex101 Site).

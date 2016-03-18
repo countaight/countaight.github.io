@@ -87,7 +87,4 @@ silly_string.split(/\d/)
 <p>Another great this about regex, once you understand what you&rsquo;re reading, is that you&rsquo;ll realize that it is actually very logical, modifiers such as + or * apply to whatever is directly to the left of it and grouping characters like [] or () apply to anything inside it. I believe with a little practice and some regular exposure to regex, it could become quite easy to spot and dissect regular expressions, and furter, be able to incorporate them properly in any aspect of programming.</p>
 
 <p>For more information, and a neat site to try out regular expressions check out <a href="https://regex101.com/%22>regex101%20Site">regex101 Site</a>.</p>
-]]></content>
-  </entry>
-  
-</feed>
+]]></

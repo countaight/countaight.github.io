@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Regex | tech Ox]]></title>
   <link href="http://countaight.github.io/blog/categories/regex/atom.xml" rel="self"/>
   <link href="http://countaight.github.io/"/>
-  <updated>2016-03-18T19:03:59+00:00</updated>
+  <updated>2016-03-18T23:45:39+00:00</updated>
   <id>http://countaight.github.io/</id>
   <author>
     <name><![CDATA[Oscar A Delgadillo]]></name>
@@ -22,7 +22,7 @@
 
 <h3>&hellip;or /\r{3}/g\/[e|x]/</h3>
 
-<p>![xkcd Regex](<a href="http://imgs.xkcd.com/comics/regular_expres">http://imgs.xkcd.com/comics/regular_expres</a></p>
+<p><img src="http://imgs.xkcd.com/comics/regular_expressions.png" alt="xkcd Regex" /></p>
 
 <p>No, I have not messed up my subtitle&hellip; That&rsquo;s a pseudo representation of a regular expression. What&rsquo;s that you ask? Well let me start from the beginning&hellip; I&rsquo;ve discussed before, the slew of built-in methods or functions both, Ruby and JavaScript carry right out of the box. These allow you to create, manipulate, or instruct objects and the program itself to do something for you. After all, isn&rsquo;t that the point of programming? Right down to its source, code is just a series of instructions the computer can read and execute to do work for you. When using these methods/functions, if you recall, you can pass along arguments to further instruct that method/function on how to deal with your objects. Here&rsquo;s a quick example in Ruby:</p>
 
@@ -30,6 +30,9 @@
 name.reverse
 =&gt; "racsO"
 </code></pre>
+
+<!-- more -->
+
 
 <p>In the code above I&rsquo;ve saved my name, as a string object, inside a variable I called &ldquo;name&rdquo;. This allows that specific state of my object to be saved and recalled when necessary. Well, on the next line, I use the reverse method on the variable, which happens to accept the method because, remember, name is considered a string object due to its containment of &ldquo;Oscar&rdquo;. By calling this method, the string is taken and reversed, just as the name implies. This new invocation of &ldquo;Oscar&rdquo; however is just the result of calling that method, and so the variable and the contents themselves haven&rsquo;t actually been touched. You can verify this by typing in name again and getting &ldquo;Oscar&rdquo; as a result.</p>
 
@@ -88,4 +91,6 @@ silly_string.split(/\d/)
 
 <p>For more information, and a neat site to try out regular expressions check out <a href="https://regex101.com/%22>regex101%20Site">regex101 Site</a>.</p>
 ]]></content>
-  </ent
+  </entry>
+  
+</feed>

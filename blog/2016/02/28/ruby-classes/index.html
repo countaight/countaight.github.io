@@ -9,7 +9,7 @@
   <meta name="author" content="Oscar A Delgadillo">
 
   
-  <meta name="description" content="ruby classes &hellip;or how the west was won February 28, 2016 Everything in Ruby is an object. A common mantra among Rubyists, this is meant to &hellip;">
+  <meta name="description" content="&hellip;or how the west was won February 28, 2016 Everything in Ruby is an object. A common mantra among Rubyists, this is meant to remind you that, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -56,7 +56,8 @@
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog/">Blog</a></li>
   <li><a href="/blog/archives">Archives</a></li>
 </ul>
 
@@ -84,15 +85,39 @@
   </header>
 
 
-<div class="entry-content"><h2>ruby classes</h2>
-
-<h3>&hellip;or how the west was won</h3>
+<div class="entry-content"><h3>&hellip;or how the west was won</h3>
 
 <h4>February 28, 2016</h4>
 
 <p>Everything in Ruby is an object. A common mantra among Rubyists, this is meant to remind you that, just like real-world objects, objects in Ruby respond to different methods and are classified by different attributes. Every object, in turn, can also be categorized by their class, which also happens to be an object in the sense that a person can be categorized by race or gender and race and gender itself, although are conceptual, are also things. Apart from the built-in classes offered in Ruby, you are allowed to create new ones to better run your code in groupings of associated attributes and behaviors. Here&rsquo;s how&hellip;</p>
 
-<p><code>class MinionCard attr_reader :faction, :name, :power def initialize(faction, name, power) @faction = faction @name = name @power = power end def play(base) check_other_cards(base) @other_cards.each do |card| if card.power &lt;= 2 @other_cards.delete(card) end end base.cards &lt;&lt; self end def check_other_cards(base) @other_cards = base.cards end def display puts "#{name} is part of the #{faction} faction, with a power of #{power.to_s}" end end</code></p>
+<pre><code>class MinionCard 
+  attr_reader :faction, :name, :power 
+  def initialize(faction, name, power) 
+    @faction = faction 
+    @name = name 
+    @power = power 
+  end 
+
+  def play(base)
+    check_other_cards(base)
+      @other_cards.each do |card|
+        if card.power &lt;= 2
+          @other_cards.delete(card)
+        end
+      end
+    base.cards &lt;&lt; self
+  end 
+
+  def check_other_cards(base)
+    @other_cards = base.cards 
+  end
+
+  def display
+    puts "#{name} is part of the #{faction} faction, with a power of #{power.to_s}"
+  end 
+end`
+</code></pre>
 
 <p>But once again, I&rsquo;ve gotten ahead of myself. The code above is a representation of a type of card found in the shufflebuilding game called, Smash Up™. The premise of the game is very simple, you take two decks of 20 cards of different factions (such as zombies, ninjas, etc.), and you smash them together to create one 40-card deck. These decks contain minion and action cards that are meant to be placed on other cards that represent bases. An example of the base below for example&hellip;</p>
 
@@ -116,7 +141,16 @@
 
 <p>The use of instance variables, these are easily recognizable by their starting &ldquo;@&rdquo; symbol, is very important when it comes to classes. They are very similar to local variables with a bit of a larger scope. While local variables can only be used in the area they&rsquo;re defined in&ndash;outside of methods, inside a particular method, etc., instance variable can be used anywhere inside the classes, including inside and outside the methods defined in that class.</p>
 
-<p><code>class SimpleClass @instance_variable = "now you see me" def instance_method @instance_variable = "now you don't" end @instance_variable = "fin" end</code></p>
+<pre><code>class SimpleClass 
+  @instance_variable = "now you see me" 
+
+  def instance_method 
+    @instance_variable = "now you don't" 
+  end 
+
+  @instance_variable = "fin" 
+end`
+</code></pre>
 
 <p>In the example above the <code>@instance_variable</code> is easily accessible throughout the class, including the instance_method in there that later redefines the variable.</p>
 
@@ -171,8 +205,10 @@
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/blog/2016/02/21/enumerable-methods-inject/" title="Previous Post: enumerable methods: inject">&laquo; enumerable methods: inject</a>
       
-        <a class="basic-alignment right" href="/blog/2016/03/11/regular-expressions/" title="Next Post: regular expressions">regular expressions &raquo;</a>
+      
+        <a class="basic-alignment right" href="/blog/2016/03/06/ruby-classes-vs-javascript-constructor-functions/" title="Next Post: ruby classes vs. javascript constructor functions">ruby classes vs. javascript constructor functions &raquo;</a>
       
     </p>
   </footer>
@@ -191,7 +227,15 @@
       </li>
     
       <li class="post">
+        <a href="/blog/2016/03/06/ruby-classes-vs-javascript-constructor-functions/">Ruby Classes vs. Javascript Constructor Functions</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2016/02/28/ruby-classes/">Ruby Classes</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/21/enumerable-methods-inject/">Enumerable Methods: Inject</a>
       </li>
     
   </ul>
@@ -246,4 +290,3 @@
 
 </body>
 </html>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Javascript | tech Ox]]></title>
   <link href="http://countaight.github.io/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://countaight.github.io/"/>
-  <updated>2016-03-18T23:18:52+00:00</updated>
+  <updated>2016-03-18T23:45:39+00:00</updated>
   <id>http://countaight.github.io/</id>
   <author>
     <name><![CDATA[Oscar A Delgadillo]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Ruby Classes vs. Javascript Constructor Functions]]></title>
-    <link href="http://countaight.github.io/blog/2016/06/18/ruby-classes-vs-javascript-constructor-functions/"/>
-    <updated>2016-06-18T23:08:01+00:00</updated>
-    <id>http://countaight.github.io/blog/2016/06/18/ruby-classes-vs-javascript-constructor-functions</id>
+    <link href="http://countaight.github.io/blog/2016/03/06/ruby-classes-vs-javascript-constructor-functions/"/>
+    <updated>2016-03-06T23:08:01+00:00</updated>
+    <id>http://countaight.github.io/blog/2016/03/06/ruby-classes-vs-javascript-constructor-functions</id>
     <content type="html"><![CDATA[<h3>&hellip;to be or not to be&hellip;an object&hellip;</h3>
 
 <p><img src="../imgs/javascript-blog/HamletSkullHCSealous.jpg" alt="" /></p>

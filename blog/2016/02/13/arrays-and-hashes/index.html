@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Arrays and Hashes - tech Ox</title>
+  <meta name="author" content="Oscar A Delgadillo">
+
+  
+  <meta name="description" content="&hellip;or finding your Tupperware® lids No one can deny the usefulness of plastic containers&ndash;they&rsquo;re light, they&rsquo;re cheap, and &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://countaight.github.io/blog/2016/02/13/arrays-and-hashes/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="tech Ox" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">tech Ox</a></h1>
+  
+    <h2>Tackling Tech Headfirst</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="countaight.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Arrays and Hashes</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-02-13T00:57:16+00:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>12:57 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h3>&hellip;or finding your Tupperware® lids</h3>
+
+<p><img src="../imgs/array/containers.jpg" alt="Containers" /></p>
+
+<p>No one can deny the usefulness of plastic containers&ndash;they&rsquo;re light, they&rsquo;re cheap, and they can hold anything from your loose cereal to your boardgame small bits and pieces. These <em>container objects</em> have made themselves indispensible, and it&rsquo;s no wonder that they have transferred over into the world of programming language. In Ruby, specifically, container objects come in the form of arrays and hashes.</p>
+
+<h3>Arrays</h3>
+
+<pre><code>computer_container = ["laptop", "mouse", "charger"]
+=&gt; ["computer", "mouse", "charger"]
+</code></pre>
+
+<p>That up there is an example of a very basic array. In Ruby, an array is a list of things, each item separated by a comma and contained between two square brackets. The great thing about this type of container is that all the items remain ordered in their original position and so by default each item is automatically indexed into their position. You&rsquo;ll see what I mean when I break this down:</p>
+
+<p><img src="../imgs/array/Arrays.jpg" alt="Arrays" /></p>
+
+<p>As the image above shows, once I place these items into the container, they remain in that indexed positioned, so the laptop is now at index &ldquo;0&rdquo;, the mouse is at index &ldquo;1&rdquo;, and so on and so forth. This is useful when you need to iterate (or go over the list item by item) by index, or if you want to recall the item by its index as follows:</p>
+
+<pre><code>computer_container[1]
+=&gt; "mouse"
+</code></pre>
+
+<p>Finally, because of the nature of the array, it&rsquo;s very easy to manipulate their content to be sorted and rearranged. And again, this nature lends itself well for mathematical uses. An array can be created with numbers and then mathemactical operations can be applied internally.</p>
+
+<pre><code>mathary = (1..5).to_a
+=&gt; [1, 2, 3, 4, 5]
+
+mathary.map { |x| x * 2 }
+=&gt; [2, 4, 6, 8, 10]
+</code></pre>
+
+<p>In the example above, an array containing the numbers one through five was created, then using the map method, it applied the code within the curly braces. In this case, taking each number and multiplying it by two, producing the new array.</p>
+
+<p>So as you can see, arrays are greatly useful for containing an ordered list of things, to-do list item, a list of your favorite numbers, anything! Now, when it comes to providing your own labels to your items, well, we need Array&rsquo;s bigger, more nosy cousin, the Hash.</p>
+
+<h3>Hash</h3>
+
+<pre><code>shiny_hash = { "Edgar"  =&gt; 25, 
+               "Oscar"  =&gt; 29, 
+               "Booper" =&gt; 24 }
+</code></pre>
+
+<p>A hash is very similar to an array, except for its ability to contain labeled items. Or in other words, a value that is attached to a unique key. In the example above, &ldquo;Edgar&rdquo;, &ldquo;Oscar&rdquo;, and &ldquo;Booper&rdquo; are all keys pointing to a value of 25, 29, and 24, respectively. In other languages, hashes are also called dictionaries, and it&rsquo;s not hard to see why. Once created and filled with the information you like, values inside the hash can be recalled using its key. Almost like looking up a definition by the word.</p>
+
+<blockquote><p><pre   `
+    fancy_dictionary = { "totes"  => &ldquo;Colloquial term
+                                      for totally&rdquo;,
+                         &ldquo;LOL&rdquo;    => &ldquo;Short for laugh out
+                                      loud&rdquo;,
+                         &ldquo;fleek&rdquo;  => &ldquo;Above acceptable in
+                                      quality&rdquo; }`
+    </pre></p></blockquote>
+
+<p>If we were to create a dictionary hash like the one above, then searching for a definition would be a matter of addressing its key pair, like this:</p>
+
+<pre><code>fancy_dictionary['fleek']
+=&gt; "Above acceptable in quality"
+</code></pre>
+
+<p>Now, hashes can be just as useful as arrays for containing lots of information, but their unique use comes from methods that allow you to verify or compare keys and values against let&rsquo;s say a variable or even user input. One such example is the creation of email and password hashes that can be used as a way to log in to a website.</p>
+
+<p>Keep in mind this is just a taste of what arrays and hashes can do, if you&rsquo;re interested in finding out more, the Ruby docs contains very detailed information on what you can do with arrays and hashes. <a href="http://http://ruby-doc.org/core-2.2.0/Array.html">Ruby Array</a> and <a href="http://ruby-doc.org/core-2.2.0/Hash.html">Ruby Hash</a>.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Oscar A Delgadillo</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2016-02-13T00:57:16+00:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>12:57 am</span></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://countaight.github.io/blog/2016/02/13/arrays-and-hashes/" data-via="countaightblah" data-counturl="http://countaight.github.io/blog/2016/02/13/arrays-and-hashes/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+      
+        <a class="basic-alignment right" href="/blog/2016/02/21/enumerable-methods-inject/" title="Next Post: enumerable methods: inject">enumerable methods: inject &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/03/11/regular-expressions/">Regular Expressions</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/03/06/ruby-classes-vs-javascript-constructor-functions/">Ruby Classes vs. Javascript Constructor Functions</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/28/ruby-classes/">Ruby Classes</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/21/enumerable-methods-inject/">Enumerable Methods: Inject</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/13/arrays-and-hashes/">Arrays and Hashes</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - Oscar A Delgadillo -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

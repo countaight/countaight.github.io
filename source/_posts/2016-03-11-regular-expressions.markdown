@@ -16,7 +16,7 @@ No, I have not messed up my subtitle... That's a pseudo representation of a regu
     name = "Oscar"
     name.reverse
     => "racsO"
-
+<!-- more -->
 In the code above I've saved my name, as a string object, inside a variable I called "name". This allows that specific state of my object to be saved and recalled when necessary. Well, on the next line, I use the reverse method on the variable, which happens to accept the method because, remember, name is considered a string object due to its containment of "Oscar". By calling this method, the string is taken and reversed, just as the name implies. This new invocation of "Oscar" however is just the result of calling that method, and so the variable and the contents themselves haven't actually been touched. You can verify this by typing in name again and getting "Oscar" as a result.
 
 But moving on, non-destructive methods, meaning those that haven't permenantly altered the state of the variable, are useful for when you want to call the results of those methods and save them elsewhere. This, coupled with the ability to use arguments, further customizing the way the method acts, can get you very specific results. You'll actually start to notice that some methods, while not initially requiring any arguments, will accept optional arguments in the form of regular expressions, or regex.
